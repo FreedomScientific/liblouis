@@ -134,4 +134,9 @@
   ../../tables/zh_TW.tbl                        Taiwanese braille
   ../../tables/zhcn-g1.ctb                      Mainland Chinese braille with tone
   ../../tables/zhcn-g2.ctb                      Two-cell Chinese Braille
-
+* ../../tables/kh-g1.ctb                        Khmer braille
+* ../../tables/mm-g1.ctb                        Burmese uncontracted braille
+* ../../tables/mm-g2.ctb                        Burmese contracted braille
+* ../../tables/vi-vn-g1.ctb                     Vietnamese uncontracted braille
+* ../../tables/vi-vn-g2.ctb                     Vietnamese partially contracted braille
+* ../../tables/vi-vn-g3.ctb                     Vietnamese fully contracted braille
