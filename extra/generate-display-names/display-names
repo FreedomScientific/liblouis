@@ -137,6 +137,7 @@
 * ../../tables/kh-g1.ctb                        Khmer braille
 * ../../tables/mm-g1.ctb                        Burmese uncontracted braille
 * ../../tables/mm-g2.ctb                        Burmese contracted braille
+* ../../tables/vi-south-g2.ctb                  Southern Vietnamese braille
 * ../../tables/vi-vn-g1.ctb                     Vietnamese uncontracted braille
 * ../../tables/vi-vn-g2.ctb                     Vietnamese partially contracted braille
 * ../../tables/vi-vn-g3.ctb                     Vietnamese fully contracted braille
