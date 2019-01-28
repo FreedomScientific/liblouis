@@ -56,7 +56,8 @@ nocontractsign 56
 numericnocontchars abcdefghij
 
 #   add numeric space indicator
-noback context _$d["\s"]$d @5
+#The below rule causes unwanted replacements in situations, such as Excel spreadsheets
+#noback context _$d["\s"]$d @5
 
 #   remove numeric space indicator
 noback correct _$d["\""]$d "\s"
