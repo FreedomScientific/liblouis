@@ -1,0 +1,73 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Extracted from US_Unicode.jbt,
+# section Hebrew-Unicode
+
+letter \x05D0 18
+letter \x05D1 128
+letter \x05D2 1245
+letter \x05D3 1458
+letter \x05D4 1258
+letter \x05D5 24568
+letter \x05D6 13568
+letter \x05D7 13468
+letter \x05D8 23458
+letter \x05D9 2458
+letter \x05DA 138
+letter \x05DB 168
+letter \x05DC 1238
+letter \x05DD 1348
+letter \x05DE 1348
+letter \x05DF 13458
+letter \x05E0 13458
+letter \x05E1 2348
+letter \x05E2 12468
+letter \x05E3 12348
+letter \x05E4 12348
+letter \x05E5 23468
+letter \x05E6 23468
+letter \x05E7 123458
+letter \x05E8 12358
+letter \x05E9 1468
+letter \x05EA 14568
+letter \x05B0 3
+letter \x05B1 26
+letter \x05B2 25
+letter \x05B3 345
+letter \x05B4 24
+letter \x05B5 34
+letter \x05B6 15
+letter \x05B7 14
+letter \x05B8 126
+letter \x05B9 135
+letter \x05BB 136
+#letter \x05BC 5
+letter \x05BD 4
+letter \x05C1 1568
+letter \x05C2 2348

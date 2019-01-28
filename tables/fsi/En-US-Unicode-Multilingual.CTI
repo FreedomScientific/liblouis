@@ -1,0 +1,112 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Extracted from US_Unicode.jbt,
+# section Unicode-Multilingual
+
+letter \x0100 1678
+letter \x0101 168
+letter \x0102 1235678
+letter \x0103 123568
+letter \x0104 134568
+letter \x0105 168
+letter \x0106 14678
+letter \x0107 1468
+letter \x0108 14678
+letter \x0109 1468
+letter \x010C 14678
+letter \x010D 1468
+letter \x0110 145678
+letter \x0111 14568
+letter \x0112 15678
+letter \x0113 1568
+letter \x0118 12678
+letter \x0119 1268
+letter \x011B 126
+letter \x011c 1245678
+letter \x011d 124568
+letter \x011e 124567
+letter \x011f 12456
+letter \x0122 1245678
+letter \x0123 124568
+letter \x0124 125678
+letter \x0125 12568
+letter \x012B 2468
+letter \x0130 3478
+letter \x0131 348
+letter \x0134 245678
+letter \x0135 24568
+letter \x0136 13678
+letter \x0137 1368
+letter \x013B 123678
+letter \x013C 12368
+letter \x0141 134568
+letter \x0142 1568
+letter \x0143 145678
+letter \x0144 14568
+letter \x0145 1345678
+letter \x0146 134568
+letter \x0150 1245678
+letter \x0151 124568
+letter \x0152 237
+letter \x0153 467
+letter \x0156 1235678
+letter \x0157 123568
+letter \x0159 2456
+letter \x015a 134568
+letter \x015b 134568
+letter \x015C 234678
+letter \x015D 23468
+letter \x015e 134568
+letter \x015F 123468
+letter \x0160 678
+letter \x0161 1568
+letter \x0162 24678
+letter \x0163 23458
+letter \x0164 125678
+letter \x0165 1256
+letter \x016a 34678
+letter \x016B 3468
+letter \x016C 34678
+letter \x016D 3468
+letter \x016f 23456
+letter \x0170 2345678
+letter \x0171 234568
+letter \x0178 12345678
+letter \x0179 134568
+letter \x017a 134568
+letter \x017b 134568
+letter \x017C 123468
+letter \x017D 12567
+letter \x017e 2346
+letter \x0192 78
+letter \x01a0 12367
+letter \x01a1 1236
+punctuation \x025C 13567
+punctuation \x02C6 12678
+punctuation \x02DC 134568

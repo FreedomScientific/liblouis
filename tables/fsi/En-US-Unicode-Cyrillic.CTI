@@ -1,0 +1,119 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Extracted from US_Unicode.jbt,
+# section Unicode-Cyrillic
+
+letter \x0401 1678
+letter \x0404 34578
+letter \x0406 1345678
+letter \x0407 145678
+letter \x0410 178
+letter \x0411 1278
+letter \x0412 245678
+letter \x0413 124578
+letter \x0414 14578
+letter \x0415 1578
+letter \x0416 24578
+letter \x0417 135678
+letter \x0418 2478
+letter \x0419 1234678
+letter \x041A 1378
+letter \x041B 12378
+letter \x041C 13478
+letter \x041D 134578
+letter \x041E 13578
+letter \x041F 123478
+letter \x0420 123578
+letter \x0421 23478
+letter \x0422 234578
+letter \x0423 13678
+letter \x0424 12478
+letter \x0425 12578
+letter \x0426 1478
+letter \x0427 1234578
+letter \x0428 15678
+letter \x0429 134678
+letter \x042A 1235678
+letter \x042B 234678
+letter \x042C 2345678
+letter \x042D 24678
+letter \x042E 125678
+letter \x042F 124678
+letter \x0430 18
+letter \x0431 128
+letter \x0432 24568
+letter \x0433 12458
+letter \x0434 1458
+letter \x0435 158
+letter \x0436 2458
+letter \x0437 13568
+letter \x0438 248
+letter \x0439 123468
+letter \x043A 138
+letter \x043B 1238
+letter \x043C 1348
+letter \x043D 13458
+letter \x043E 1358
+letter \x043F 12348
+letter \x0440 12358
+letter \x0441 2348
+letter \x0442 23458
+letter \x0443 1368
+letter \x0444 1248
+letter \x0445 1258
+letter \x0446 148
+letter \x0447 123458
+letter \x0448 1568
+letter \x0449 13468
+letter \x044A 123568
+letter \x044B 23468
+letter \x044C 234568
+letter \x044D 2468
+letter \x044E 12568
+letter \x044F 12468
+letter \x0451 168
+letter \x0452 14568
+letter \x0454 3458
+letter \x0456 134568
+letter \x0457 14568
+letter \x0458 134568
+letter \x0459 1268
+letter \x045A 12468
+letter \x045E 3468
+letter \x0463 3458
+letter \x0467 18
+letter \x046B 124568
+letter \x0479 3468
+letter \x0484 478
+letter \x0490 1245678
+letter \x0491 124568
+letter \x04A3 13458
+letter \x04AF 12568
+letter \x04BB 128
+letter \x04D9 2468

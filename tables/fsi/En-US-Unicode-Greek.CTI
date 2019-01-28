@@ -1,0 +1,83 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Extracted from US_Unicode.jbt,
+# section Unicode-Greek
+
+sign \x0374 3456
+sign \x0375 5678
+sign \x037E 26
+sign \x0384 4
+sign \x0385 45
+sign \x0386 34578
+sign \x0387 746
+sign \x0388 124678
+sign \x0389 12345678
+sign \x038A 1245678
+sign \x038C 24678
+sign \x038E 125678
+sign \x038F 24578
+sign \x0390 248
+sign \x03AA 2478
+sign \x03AB 1345678
+sign \x03AC 3458
+sign \x03AD 12468
+sign \x03AE 1234568
+sign \x03AF 124568
+sign \x03B0 134568
+sign \x03CA 348
+sign \x03CB 234568
+sign \x03CC 2468
+sign \x03CD 12568
+sign \x03CE 2458
+sign \x03D0 1278
+sign \x03D1 145678
+sign \x03D2 12368
+sign \x03D3 23456
+sign \x03D4 1368
+sign \x03D6 123478
+sign \x03D7 12346
+sign \x03D8 1234578
+sign \x03D9 123458
+sign \x03DA 123678
+sign \x03DB 12368
+sign \x03DC 145678
+sign \x03DD 12368
+sign \x03DE 1234578
+sign \x03D8 12678
+sign \x03D9 1268
+sign \x03DF 123458
+sign \x03E0 34578
+sign \x03E1 3458
+sign \x03F0 1234578
+sign \x03F1 123578
+sign \x03F2 23478
+sign \x03F4 145678
+sign \x03F5 1578
+sign \x03FA 234678
+sign \x03FB 23468

@@ -1,0 +1,55 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Freedom Scientific additional include definitions
+# Extracted from US_Unicode.jbt,
+# section Private-Unicode
+
+noback punctuation \x2022 456-256  # bullet
+noback punctuation \x2023 2345-1235-24
+punctuation \x2043 36
+noback punctuation \x204C 123-1-1235-1235
+noback punctuation \x204d 1235-1-1235-1235
+noback punctuation \x25c9 245-2345
+noback sign \x25CF 35  # black circle used in password edit
+noback punctuation \x25e6 2456-1235-1345-145
+punctuation \x2605 16  black star
+noback punctuation \x2619 1235-125
+sign \x9744 126-0-345 
+noback sign \x9745 126-1346-345 
+punctuation \xf06e 36-36
+noback punctuation \xf071 125-234-12345
+punctuation \xf076 16
+noback punctuation \xf0a7 124-234-12345
+noback punctuation \xf0a8 124-145-134-1345-145
+noback punctuation \xf0ab 5-35
+noback punctuation \xf0b7 124-1235-1345-145
+noback punctuation \xf0d8 1-1235-1235
+noback punctuation \xf0e0 124-145-134-1345-145
+noback punctuation \xf0fc 14-125-13
+

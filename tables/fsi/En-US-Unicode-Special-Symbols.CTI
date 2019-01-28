@@ -1,0 +1,65 @@
+#  Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
+#  The BRLTTY Team
+#
+#  Copyright (C) 2004, 2005, 2006
+#  ViewPlus Technologies, Inc. www.viewplus.com
+#  and
+#  JJB Software, Inc. www.jjb-software.com
+#  All rights reserved
+#
+#  This file is free software; you can redistribute it and/or modify it
+#   under the terms of the Lesser or Library GNU General Public License 
+#  as published by the
+#  Free Software Foundation; either version 3, or (at your option) any
+#  later version.
+# 
+#  This file is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+#  Library GNU General Public License for more details.
+#
+#  You should have received a copy of the Library GNU General Public 
+#  License along with this program; see the file COPYING.  If not, write 
+#  to
+#  the Free Software Foundation, 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301, USA.
+#
+# ----------------------------------------------------------------------------------------------
+# This file is created and maintained by Freedom Scientific, LLC
+# Extracted from US_Unicode.jbt,
+# section Unicode-Special-Symbols
+
+punctuation \x2011 36
+punctuation \x2013 3678
+punctuation \x2014 368
+punctuation \x2015 36
+punctuation \x2017 36
+punctuation \x2018 34578
+punctuation \x2019 3
+# paragraph-marker
+punctuation \x2029 1458
+punctuation \x201A 1268
+punctuation \x201C 58
+punctuation \x201E 3458
+punctuation \x2020 345678
+punctuation \x2021 1234678
+punctuation \x2026 123568
+punctuation \x2030 12468
+punctuation \x2039 124568
+punctuation \x203A 58
+letter \x207F 13467
+sign \x20AF 145678
+math \x2219 48
+math \x221A 345
+math \x2248 3578
+math \x2310 14567
+math \x2320 347
+math \x2321 1567
+punctuation \x2584 1267
+punctuation \x2588 12345678
+punctuation \x2580 234567
+punctuation \x258C 23678
+punctuation \x2590 35678
+punctuation \x2591 78
+punctuation \x2592 3678
+punctuation \x2593 235678
