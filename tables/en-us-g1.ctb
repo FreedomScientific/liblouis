@@ -169,7 +169,7 @@ always ... 3-3-3
 always ...' 3-3-3-356-3
 repeated .... 0
 repeated ____ 456
-repeated ---- 36
+#repeated ---- 36  Removed, causes truncation of HTML separators
 always .\s.\s." 3-3-3-356
 always .\s.\s. 3-3-3 . . .
 begnum $ 256
