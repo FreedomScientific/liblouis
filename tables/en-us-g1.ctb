@@ -207,3 +207,5 @@ noback always \\_ 56 letter sign before Roman page numbers
 noback pass2 @56-56 @56
 noback pass2 @3-56 @3
 
+# Show undefined characters 
+undefined 12345678

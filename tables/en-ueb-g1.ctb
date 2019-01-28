@@ -281,3 +281,5 @@ repeated _ 46-36
 #pass2 @56-56 @56
 #pass2 @3-56 @3
 
+# Show undefined characters 
+undefined 12345678
