@@ -177,30 +177,32 @@ nofor begnum $ 256-3456
 always $ 4-256
 
 # special character sequences
+# Some of the following compbrl entries are commented out
+# so that filenames may be consistently presented as fully translated strings in shell folder listviews:
 compbrl :// URLs
 compbrl ()
 compbrl www.
 compbrl ::
-compbrl .com
-compbrl .edu
-compbrl .gov
-compbrl .ini
-compbrl .mil
-compbrl .net
-compbrl .org
-compbrl .doc
-compbrl .xml
-compbrl .xsl
-compbrl .htm
-compbrl .html
-compbrl .tex
-compbrl .txt
-compbrl .gif
-compbrl .jpg
-compbrl .png
-compbrl .wav
-compbrl .tar
-compbrl .zip
+# compbrl .com
+# compbrl .edu
+# compbrl .gov
+# compbrl .ini
+# compbrl .mil
+# compbrl .net
+# compbrl .org
+# compbrl .doc
+# compbrl .xml
+# compbrl .xsl
+# compbrl .htm
+# compbrl .html
+# compbrl .tex
+# compbrl .txt
+# compbrl .gif
+# compbrl .jpg
+# compbrl .png
+# compbrl .wav
+# compbrl .tar
+# compbrl .zip
 
 noback context "\e"$a *
 noback always \\_ 56 letter sign before Roman page numbers
