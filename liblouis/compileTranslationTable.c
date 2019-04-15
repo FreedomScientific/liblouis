@@ -272,10 +272,10 @@ compileError(FileInfo *nested, const char *format, ...) {
 	vsnprintf(buffer, sizeof(buffer), format, arguments);
 	va_end(arguments);
 	if (nested)
-		_lou_logMessage(LOG_ERROR, "%s:%d: error: %s", nested->fileName,
+		_lou_logMessage(LOU_LOG_ERROR, "%s:%d: error: %s", nested->fileName,
 				nested->lineNumber, buffer);
 	else
-		_lou_logMessage(LOG_ERROR, "error: %s", buffer);
+		_lou_logMessage(LOU_LOG_ERROR, "error: %s", buffer);
 	errorCount++;
 #endif
 }
@@ -289,10 +289,10 @@ compileWarning(FileInfo *nested, const char *format, ...) {
 	vsnprintf(buffer, sizeof(buffer), format, arguments);
 	va_end(arguments);
 	if (nested)
-		_lou_logMessage(LOG_WARN, "%s:%d: warning: %s", nested->fileName,
+		_lou_logMessage(LOU_LOG_WARN, "%s:%d: warning: %s", nested->fileName,
 				nested->lineNumber, buffer);
 	else
-		_lou_logMessage(LOG_WARN, "warning: %s", buffer);
+		_lou_logMessage(LOU_LOG_WARN, "warning: %s", buffer);
 	warningCount++;
 #endif
 }
@@ -1735,8 +1735,14 @@ compilePassOpcode(FileInfo *nested, TranslationTableOpcode opcode,
 		testDoCharsDots:
 			if (passHoldString.length == 0) return 0;
 			passInstructions[passIC++] = passHoldString.length;
-			for (kk = 0; kk < passHoldString.length; kk++)
+			for (kk = 0; kk < passHoldString.length; kk++) {
+				if (passIC >= MAXSTRING) {
+					compileError(passNested,
+							"@ operand in test part of multipass operand too long");
+					return 0;
+				}
 				passInstructions[passIC++] = passHoldString.chars[kk];
+			}
 			break;
 		case pass_startReplace:
 			passInstructions[passIC++] = pass_startReplace;
@@ -2507,6 +2513,9 @@ doOpcode:
 		break;
 	}
 	case CTO_Locale:
+		compileWarning(nested,
+				"The locale opcode is not implemented. Use the locale meta data "
+				"instead.");
 		break;
 	case CTO_Undefined:
 		tmp_offset = (*table)->undefined;
@@ -2727,7 +2736,7 @@ doOpcode:
 				s[k++] = '\0';
 				for (i = 0; (*table)->emphClasses[i]; i++)
 					if (strcmp(s, (*table)->emphClasses[i]) == 0) {
-						_lou_logMessage(LOG_WARN, "Duplicate emphasis class: %s", s);
+						_lou_logMessage(LOU_LOG_WARN, "Duplicate emphasis class: %s", s);
 						warningCount++;
 						free(s);
 						return 1;
@@ -2760,7 +2769,7 @@ doOpcode:
 					 */
 					case 0:
 						if (strcmp(s, "italic") != 0) {
-							_lou_logMessage(LOG_ERROR,
+							_lou_logMessage(LOU_LOG_ERROR,
 									"First emphasis class must be \"italic\" but got %s",
 									s);
 							errorCount++;
@@ -2770,7 +2779,7 @@ doOpcode:
 						break;
 					case 1:
 						if (strcmp(s, "underline") != 0) {
-							_lou_logMessage(LOG_ERROR,
+							_lou_logMessage(LOU_LOG_ERROR,
 									"Second emphasis class must be \"underline\" but got "
 									"%s",
 									s);
@@ -2781,7 +2790,7 @@ doOpcode:
 						break;
 					case 2:
 						if (strcmp(s, "bold") != 0) {
-							_lou_logMessage(LOG_ERROR,
+							_lou_logMessage(LOU_LOG_ERROR,
 									"Third emphasis class must be \"bold\" but got %s",
 									s);
 							errorCount++;
@@ -2795,7 +2804,7 @@ doOpcode:
 					ok = 1;
 					break;
 				} else {
-					_lou_logMessage(LOG_ERROR,
+					_lou_logMessage(LOU_LOG_ERROR,
 							"Max number of emphasis classes (%i) reached",
 							MAX_EMPH_CLASSES);
 					errorCount++;
@@ -2824,7 +2833,7 @@ doOpcode:
 				for (i = 0; (*table)->emphClasses[i]; i++)
 					if (strcmp(s, (*table)->emphClasses[i]) == 0) break;
 				if (!(*table)->emphClasses[i]) {
-					_lou_logMessage(LOG_ERROR, "Emphasis class %s not declared", s);
+					_lou_logMessage(LOU_LOG_ERROR, "Emphasis class %s not declared", s);
 					errorCount++;
 					free(s);
 					break;
@@ -3546,7 +3555,7 @@ lou_readCharFromFile(const char *fileName, int *mode) {
 		nested.status = 0;
 		nested.lineNumber = 0;
 		if (!(nested.in = fopen(nested.fileName, "r"))) {
-			_lou_logMessage(LOG_ERROR, "Cannot open file '%s'", nested.fileName);
+			_lou_logMessage(LOU_LOG_ERROR, "Cannot open file '%s'", nested.fileName);
 			*mode = 1;
 			return EOF;
 		}
@@ -3647,7 +3656,7 @@ resolveSubtable(const char *table, const char *base, const char *searchPath) {
 		tableFile[++k] = '\0';
 		strcat(tableFile, table);
 		if (stat(tableFile, &info) == 0 && !(info.st_mode & S_IFDIR)) {
-			_lou_logMessage(LOG_DEBUG, "found table %s", tableFile);
+			_lou_logMessage(LOU_LOG_DEBUG, "found table %s", tableFile);
 			return tableFile;
 		}
 	}
@@ -3658,7 +3667,7 @@ resolveSubtable(const char *table, const char *base, const char *searchPath) {
 	//
 	strcpy(tableFile, table);
 	if (stat(tableFile, &info) == 0 && !(info.st_mode & S_IFDIR)) {
-		_lou_logMessage(LOG_DEBUG, "found table %s", tableFile);
+		_lou_logMessage(LOU_LOG_DEBUG, "found table %s", tableFile);
 		return tableFile;
 	}
 
@@ -3678,7 +3687,7 @@ resolveSubtable(const char *table, const char *base, const char *searchPath) {
 			if (dir == cp) dir = ".";
 			sprintf(tableFile, "%s%c%s", dir, DIR_SEP, table);
 			if (stat(tableFile, &info) == 0 && !(info.st_mode & S_IFDIR)) {
-				_lou_logMessage(LOG_DEBUG, "found table %s", tableFile);
+				_lou_logMessage(LOU_LOG_DEBUG, "found table %s", tableFile);
 				free(searchPath_copy);
 				return tableFile;
 			}
@@ -3686,7 +3695,7 @@ resolveSubtable(const char *table, const char *base, const char *searchPath) {
 			sprintf(tableFile, "%s%c%s%c%s%c%s", dir, DIR_SEP, "liblouis", DIR_SEP,
 					"tables", DIR_SEP, table);
 			if (stat(tableFile, &info) == 0 && !(info.st_mode & S_IFDIR)) {
-				_lou_logMessage(LOG_DEBUG, "found table %s", tableFile);
+				_lou_logMessage(LOU_LOG_DEBUG, "found table %s", tableFile);
 				free(searchPath_copy);
 				return tableFile;
 			}
@@ -3703,22 +3712,28 @@ _lou_getTablePath(void) {
 	char searchPath[MAXSTRING];
 	char *path;
 	char *cp;
+	int envset = 0;
 	cp = searchPath;
 	path = getenv("LOUIS_TABLEPATH");
-	if (path != NULL && path[0] != '\0') cp += sprintf(cp, ",%s", path);
+	if (path != NULL && path[0] != '\0') {
+		envset = 1;
+		cp += sprintf(cp, ",%s", path);
+	}
 	path = lou_getDataPath();
 	if (path != NULL && path[0] != '\0')
 		cp += sprintf(cp, ",%s%c%s%c%s", path, DIR_SEP, "liblouis", DIR_SEP, "tables");
+	if (!envset) {
 #ifdef _WIN32
-	path = lou_getProgramPath();
-	if (path != NULL) {
-		if (path[0] != '\0')
-			cp += sprintf(cp, ",%s%s", path, "\\share\\liblouis\\tables");
-		free(path);
-	}
+		path = lou_getProgramPath();
+		if (path != NULL) {
+			if (path[0] != '\0')
+				cp += sprintf(cp, ",%s%s", path, "\\share\\liblouis\\tables");
+			free(path);
+		}
 #else
-	cp += sprintf(cp, ",%s", TABLESDIR);
+		cp += sprintf(cp, ",%s", TABLESDIR);
 #endif
+	}
 	if (searchPath[0] != '\0')
 		return strdup(&searchPath[1]);
 	else
@@ -3768,10 +3783,10 @@ _lou_defaultTableResolver(const char *tableList, const char *base) {
 		*cp = '\0';
 		if (!(tableFiles[k++] = resolveSubtable(subTable, base, searchPath))) {
 			char *path;
-			_lou_logMessage(LOG_ERROR, "Cannot resolve table '%s'", subTable);
+			_lou_logMessage(LOU_LOG_ERROR, "Cannot resolve table '%s'", subTable);
 			path = getenv("LOUIS_TABLEPATH");
 			if (path != NULL && path[0] != '\0')
-				_lou_logMessage(LOG_ERROR, "LOUIS_TABLEPATH=%s", path);
+				_lou_logMessage(LOU_LOG_ERROR, "LOUIS_TABLEPATH=%s", path);
 			free(searchPath);
 			free(tableList_copy);
 			free(tableFiles);
@@ -3850,7 +3865,7 @@ compileFile(const char *fileName, CharacterClass **characterClasses,
 		fclose(nested.in);
 		return 1;
 	} else
-		_lou_logMessage(LOG_ERROR, "Cannot open table '%s'", nested.fileName);
+		_lou_logMessage(LOU_LOG_ERROR, "Cannot open table '%s'", nested.fileName);
 	errorCount++;
 	return 0;
 }
@@ -3934,13 +3949,9 @@ compileTranslationTable(const char *tableList, CharacterClass **characterClasses
 
 	/* Compile things that are necesary for the proper operation of
 	 * liblouis or liblouisxml or liblouisutdml */
-	compileString("space \\s 0", characterClasses, characterClassAttribute, opcodeLengths,
-			newRuleOffset, newRule, ruleNames, &table);
-	compileString("noback sign \\x0000 0", characterClasses, characterClassAttribute,
-			opcodeLengths, newRuleOffset, newRule, ruleNames, &table);
-	compileString("space \\x00a0 a unbreakable space", characterClasses,
-			characterClassAttribute, opcodeLengths, newRuleOffset, newRule, ruleNames,
-			&table);
+	/* TODO: These definitions seem to be necessary for proper functioning of
+	   liblouisutdml. Find a way to satisfy those requirements without hard coding
+	   some characters in every table notably behind the users back */
 	compileString("space \\x001b 1b escape", characterClasses, characterClassAttribute,
 			opcodeLengths, newRuleOffset, newRule, ruleNames, &table);
 	compileString("space \\xffff 123456789abcdef ENDSEGMENT", characterClasses,
@@ -3962,13 +3973,13 @@ cleanup:
 	free_tablefiles(tableFiles);
 	if (*characterClasses) deallocateCharacterClasses(characterClasses);
 	if (*ruleNames) deallocateRuleNames(ruleNames);
-	if (warningCount) _lou_logMessage(LOG_WARN, "%d warnings issued", warningCount);
+	if (warningCount) _lou_logMessage(LOU_LOG_WARN, "%d warnings issued", warningCount);
 	if (!errorCount) {
 		setDefaults(table);
 		table->tableSize = tableSize;
 		table->bytesUsed = tableUsed;
 	} else {
-		_lou_logMessage(LOG_ERROR, "%d errors found.", errorCount);
+		_lou_logMessage(LOU_LOG_ERROR, "%d errors found.", errorCount);
 		if (table) free(table);
 		table = NULL;
 	}
@@ -4056,7 +4067,7 @@ lou_getTable(const char *tableList) {
 		lastTrans = newEntry;
 		return (gTable = newEntry->table);
 	}
-	_lou_logMessage(LOG_ERROR, "%s could not be compiled", tableList);
+	_lou_logMessage(LOU_LOG_ERROR, "%s could not be compiled", tableList);
 	return NULL;
 }
 
@@ -4129,7 +4140,7 @@ _lou_allocMem(AllocBuf buffer, int index, int srcmax, int destmax) {
 		return destSpacing;
 	case alloc_passbuf:
 		if (index < 0 || index >= MAXPASSBUF) {
-			_lou_logMessage(LOG_FATAL, "Index out of bounds: %d\n", index);
+			_lou_logMessage(LOU_LOG_FATAL, "Index out of bounds: %d\n", index);
 			exit(3);
 		}
 		if (destmax > sizePassbuf[index]) {

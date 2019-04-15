@@ -123,6 +123,8 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/hu-hu-comp8_harness.yaml		  \
 	braille-specs/hu-hu-g1_backward.yaml		  \
 	braille-specs/hu-hu-g1_harness.yaml		  \
+	braille-specs/hu-hu-g2_harness.yaml \
+	braille-specs/hu-hu-g2_backward.yaml \
 	braille-specs/iu-ca-g1_harness.yaml		  \
 	braille-specs/ko-2006-g2_harness.yaml		  \
 	braille-specs/ko-g2_harness.yaml		  \
@@ -134,12 +136,15 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/nl-NL-g0_harness.yaml		  \
 	braille-specs/nl-g0_harness.yaml		  \
 	braille-specs/no_8dot_harness.yaml		  \
+	braille-specs/no_backward.yaml			  \
 	braille-specs/no_g1_harness.yaml		  \
 	braille-specs/no_g2_harness.yaml		  \
 	braille-specs/no_harness.yaml			  \
 	braille-specs/pl-pl-comp8_harness.yaml		  \
 	braille-specs/Pl-Pl-g1_backward.yaml		  \
 	braille-specs/sk-g1_harness.yaml		  \
+	braille-specs/sl-g1.yaml			  \
+	braille-specs/spaces.yaml			  \
 	braille-specs/sr-g1_harness.yaml		  \
 	braille-specs/ta-ta-g1_harness.yaml		  \
 	braille-specs/uk.yaml				  \
@@ -157,47 +162,49 @@ dist_braille_specs_TESTS +=				  \
 	braille-specs/hu-hu-g1-hyph_harness.yaml
 endif
 
-dist_yaml_TESTS =			  \
-	yaml/back_cont_then_punc.yaml	  \
-	yaml/begcaps_endcaps.yaml	  \
-	yaml/before_begmidword.yaml	  \
-	yaml/broken_equals_operand.yaml	  \
-	yaml/capitalization.yaml	  \
-	yaml/capsnocont.yaml		  \
-	yaml/capsword_for_back.yaml	  \
+dist_yaml_TESTS =				\
+	yaml/back_cont_then_punc.yaml		\
+	yaml/begcaps_endcaps.yaml		\
+	yaml/before_begmidword.yaml		\
+	yaml/broken_equals_operand.yaml		\
+	yaml/capitalization.yaml		\
+	yaml/capsnocont.yaml			\
+	yaml/capsword_for_back.yaml		\
 	yaml/compbrlAtCursor_with_equals.yaml	\
-	yaml/emphasis-full.yaml		  \
-	yaml/emphasis-no-context.yaml	  \
-	yaml/example_test.yaml		  \
-	yaml/foo.yaml			  \
-	yaml/hyphenation_nocross_harness.yaml  \
-	yaml/inpos_outpos.yaml		  \
-	yaml/issue-238.yaml		  \
-	yaml/issue-35.yaml		  \
-	yaml/issue-384.yaml		  \
-	yaml/issue-400.yaml		  \
-	yaml/issue-401.yaml		  \
-	yaml/issue-406.yaml		  \
-	yaml/issue-412.yaml		  \
-	yaml/issue-479.yaml		  \
-	yaml/issue-498.yaml		  \
-	yaml/issue-537.yaml		  \
-	yaml/issue-583.yaml		  \
-	yaml/issue-584.yaml		  \
-	yaml/issue-615.yaml		  \
-	yaml/issue-77.yaml 		  \
-	yaml/letterDefTest_harness.yaml	  \
-	yaml/multipass-backward.yaml	  \
-	yaml/multipass-forward.yaml	  \
-	yaml/multipass.yaml		  \
-	yaml/multipass-negation.yaml	  \
-	yaml/new_emph.yaml		  \
-	yaml/noletsignafter.yaml	  \
-	yaml/noUndefinedDots.yaml	  \
-	yaml/partialTrans.yaml		  \
-	yaml/pass0_typebuf.yaml		  \
-	yaml/present_progressive.yaml	  \
-	yaml/squash_space.yaml		  \
+	yaml/computer_braille.yaml		\
+	yaml/emphasis-full.yaml			\
+	yaml/emphasis-no-context.yaml		\
+	yaml/example_test.yaml			\
+	yaml/foo.yaml				\
+	yaml/hyphenation_nocross_harness.yaml	\
+	yaml/inpos_outpos.yaml			\
+	yaml/issue-238.yaml			\
+	yaml/issue-35.yaml			\
+	yaml/issue-384.yaml			\
+	yaml/issue-400.yaml			\
+	yaml/issue-401.yaml			\
+	yaml/issue-406.yaml			\
+	yaml/issue-412.yaml			\
+	yaml/issue-479.yaml			\
+	yaml/issue-498.yaml			\
+	yaml/issue-537.yaml			\
+	yaml/issue-583.yaml			\
+	yaml/issue-584.yaml			\
+	yaml/issue-615.yaml			\
+	yaml/issue-77.yaml			\
+	yaml/letterDefTest_harness.yaml		\
+	yaml/multipass-backward.yaml		\
+	yaml/multipass-forward.yaml		\
+	yaml/multipass.yaml			\
+	yaml/multipass-negation.yaml		\
+	yaml/multipass-vs-match.yaml		\
+	yaml/new_emph.yaml			\
+	yaml/noletsignafter.yaml		\
+	yaml/noUndefinedDots.yaml		\
+	yaml/partialTrans.yaml			\
+	yaml/pass0_typebuf.yaml			\
+	yaml/present_progressive.yaml		\
+	yaml/squash_space.yaml			\
 	yaml/syllable.yaml
 
 YAML_LOG_COMPILER_SCRIPT = yaml-log-compiler.sh

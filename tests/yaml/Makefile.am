@@ -6,6 +6,7 @@ EXTRA_DIST =					\
 	capsnocont.yaml				\
 	capsword_for_back.yaml			\
 	compbrlAtCursor_with_equals.yaml	\
+	computer_braille.yaml			\
 	broken_equals_operand.yaml		\
 	emphasis-full.yaml			\
 	emphasis-no-context.yaml		\
@@ -26,12 +27,13 @@ EXTRA_DIST =					\
 	issue-583.yaml				\
 	issue-584.yaml				\
 	issue-615.yaml				\
-	issue-77.yaml 				\
+	issue-77.yaml				\
 	letterDefTest_harness.yaml		\
 	multipass-backward.yaml			\
 	multipass-forward.yaml			\
 	multipass.yaml				\
 	multipass-negation.yaml			\
+	multipass-vs-match.yaml			\
 	new_emph.yaml				\
 	noletsignafter.yaml			\
 	pass0_typebuf.yaml			\
