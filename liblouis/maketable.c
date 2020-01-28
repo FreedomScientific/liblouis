@@ -24,10 +24,11 @@
 #include "internal.h"
 
 static const TranslationTableHeader *table;
+static const DisplayTableHeader *displayTable;
 
 extern void
 loadTable(const char *tableList) {
-	table = lou_getTable(tableList);
+	_lou_getTable(tableList, tableList, &table, &displayTable);
 }
 
 extern int
@@ -40,7 +41,7 @@ isLetter(widechar c) {
 	static unsigned long int hash;
 	static TranslationTableOffset offset;
 	static TranslationTableCharacter *character;
-	hash = (unsigned long int)c % HASHNUM;
+	hash = _lou_charHash(c);
 	offset = table->characters[hash];
 	while (offset) {
 		character = (TranslationTableCharacter *)&table->ruleArea[offset];
@@ -52,11 +53,9 @@ isLetter(widechar c) {
 
 extern widechar
 toLowercase(widechar c) {
-	static unsigned long int hash;
 	static TranslationTableOffset offset;
 	static TranslationTableCharacter *character;
-	hash = (unsigned long int)c % HASHNUM;
-	offset = table->characters[hash];
+	offset = table->characters[_lou_charHash(c)];
 	while (offset) {
 		character = (TranslationTableCharacter *)&table->ruleArea[offset];
 		if (character->realchar == c) return character->lowercase;
@@ -73,7 +72,7 @@ toDotPattern(widechar *braille, char *pattern) {
 	for (length = 0; braille[length]; length++)
 		;
 	dots = (widechar *)malloc((length + 1) * sizeof(widechar));
-	for (i = 0; i < length; i++) dots[i] = _lou_getDotsForChar(braille[i]);
+	for (i = 0; i < length; i++) dots[i] = _lou_getDotsForChar(braille[i], displayTable);
 	strcpy(pattern, _lou_showDots(dots, length));
 	free(dots);
 }
@@ -96,8 +95,25 @@ printRule(TranslationTableRule *rule, widechar *rule_string) {
 		rule_string[l++] = ' ';
 		for (int k = 0; k < rule->charslen; k++) rule_string[l++] = rule->charsdots[k];
 		rule_string[l++] = ' ';
-		for (int k = 0; k < rule->dotslen; k++)
-			rule_string[l++] = _lou_getCharFromDots(rule->charsdots[rule->charslen + k]);
+		for (int k = 0; k < rule->dotslen; k++) {
+			rule_string[l] = _lou_getCharFromDots(
+					rule->charsdots[rule->charslen + k], displayTable);
+			if (rule_string[l] == '\0') {
+				// if a dot pattern can not be displayed, print an error message
+				char *message = (char *)malloc(50 * sizeof(char));
+				sprintf(message, "ERROR: provide a display rule for %s",
+						_lou_showDots(&rule->charsdots[rule->charslen + k], 1));
+				l = 0;
+				while (message[l]) {
+					rule_string[l] = message[l];
+					l++;
+				}
+				rule_string[l++] = '\0';
+				free(message);
+				return 1;
+			}
+			l++;
+		}
 		rule_string[l++] = '\0';
 		return 1;
 	}
@@ -118,7 +134,6 @@ printRule(TranslationTableRule *rule, widechar *rule_string) {
 static int
 find_matching_rules(widechar *text, int text_len, widechar *braille, int braille_len,
 		char *data, int clear_data) {
-	unsigned long int hash;
 	TranslationTableOffset offset;
 	TranslationTableRule *rule;
 	TranslationTableCharacter *character;
@@ -160,14 +175,10 @@ find_matching_rules(widechar *text, int text_len, widechar *braille, int braille
 		switch (hash_len) {
 		case 2:
 			if (text_len < 2) break;
-			hash = (unsigned long int)toLowercase(text[0]) << 8;
-			hash += (unsigned long int)toLowercase(text[1]);
-			hash %= HASHNUM;
-			offset = table->forRules[hash];
+			offset = table->forRules[_lou_stringHash(text, 1, table)];
 			break;
 		case 1:
-			hash = (unsigned long int)text[0] % HASHNUM;
-			offset = table->characters[hash];
+			offset = table->characters[_lou_charHash(text[0])];
 			while (offset) {
 				character = (TranslationTableCharacter *)&table->ruleArea[offset];
 				if (character->realchar == text[0]) {
@@ -236,8 +247,8 @@ find_matching_rules(widechar *text, int text_len, widechar *braille, int braille
 					(rule->dotslen == braille_len && rule->charslen < text_len))
 				goto inhibit;
 			for (k = 0; k < rule->dotslen; k++)
-				if (_lou_getCharFromDots(rule->charsdots[rule->charslen + k]) !=
-						braille[k])
+				if (_lou_getCharFromDots(rule->charsdots[rule->charslen + k],
+							displayTable) != braille[k])
 					goto inhibit;
 
 			/* don't let this rule be inhibited by an earlier rule */
@@ -379,7 +390,6 @@ suggestChunks(widechar *text, widechar *braille, char *hyphen_string) {
 extern void
 findRelevantRules(widechar *text, widechar **rules_str) {
 	int text_len, rules_len;
-	unsigned long int hash;
 	TranslationTableOffset offset;
 	TranslationTableCharacter *character;
 	TranslationTableRule *rule;
@@ -398,14 +408,10 @@ findRelevantRules(widechar *text, widechar **rules_str) {
 			switch (hash_len) {
 			case 2:
 				if (text_len - n < 2) break;
-				hash = (unsigned long int)toLowercase(text[n]) << 8;
-				hash += (unsigned long int)toLowercase(text[n + 1]);
-				hash %= HASHNUM;
-				offset = table->forRules[hash];
+				offset = table->forRules[_lou_stringHash(&text[n], 1, table)];
 				break;
 			case 1:
-				hash = (unsigned long int)text[n] % HASHNUM;
-				offset = table->characters[hash];
+				offset = table->characters[_lou_charHash(text[n])];
 				while (offset) {
 					character = (TranslationTableCharacter *)&table->ruleArea[offset];
 					if (character->realchar == text[0]) {

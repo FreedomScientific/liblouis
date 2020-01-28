@@ -5,6 +5,7 @@ EXTRA_DIST =					\
 	capitalization.yaml			\
 	capsnocont.yaml				\
 	capsword_for_back.yaml			\
+	case-sensitivity.yaml			\
 	compbrlAtCursor_with_equals.yaml	\
 	computer_braille.yaml			\
 	broken_equals_operand.yaml		\
@@ -12,9 +13,15 @@ EXTRA_DIST =					\
 	emphasis-no-context.yaml		\
 	example_test.yaml			\
 	foo.yaml				\
+	hu-hu-g1-hyph_harness.yaml		\
+	hyphenation.dic				\
+	hyphenation.yaml			\
 	hyphenation_nocross_harness.yaml	\
 	inpos_outpos.yaml			\
+	input-length.yaml			\
 	issue-238.yaml				\
+	issue-332.yaml				\
+	issue-332_hyph.dic			\
 	issue-35.yaml				\
 	issue-384.yaml				\
 	issue-400.yaml				\
@@ -34,9 +41,12 @@ EXTRA_DIST =					\
 	multipass.yaml				\
 	multipass-negation.yaml			\
 	multipass-vs-match.yaml			\
+	multipass-vs-match_common.uti		\
 	new_emph.yaml				\
 	noletsignafter.yaml			\
 	pass0_typebuf.yaml			\
 	present_progressive.yaml		\
+	repword.yaml				\
 	squash_space.yaml			\
-	syllable.yaml
+	syllable.yaml				\
+	undefined.yaml
