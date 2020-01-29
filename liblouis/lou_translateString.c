@@ -2251,7 +2251,11 @@ undefinedCharacter(widechar c, const TranslationTableHeader *table,
 
 	const char *text = (mode & noUndefined) ? "" : _lou_showString(&c, 1, 1);
 	size_t length = strlen(text);
+	#ifdef _MSC_VER
+	widechar *dots = (widechar *) _alloca(length*sizeof(widechar));
+	#else
 	widechar dots[length];
+	#endif
 
 	for (unsigned int k = 0; k < length; k += 1) {
 		widechar c = text[k];
@@ -2262,7 +2266,7 @@ undefinedCharacter(widechar c, const TranslationTableHeader *table,
 		dots[k] = d;
 	}
 
-	return for_updatePositions(dots, 1, length, 0, pos, input, output, posMapping,
+	return  for_updatePositions(dots, 1, (int) length, 0, pos, input, output, posMapping,
 			cursorPosition, cursorStatus);
 }
 

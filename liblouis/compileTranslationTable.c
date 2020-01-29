@@ -1846,7 +1846,7 @@ compilePassOpcode(FileInfo *nested, TranslationTableOpcode opcode,
 				return 0;
 		insertAttributes:
 			passInstructions[passIC++] = pass_attributes;
-			passInstructions[passIC++] = passAttributes >> 16;
+			passInstructions[passIC++] = (widechar) (passAttributes >> 16);
 			passInstructions[passIC++] = passAttributes & 0xffff;
 		getRange:
 			if (passLine.chars[passLinepos] == pass_until) {

@@ -1,4 +1,4 @@
-﻿/* liblouis Braille Translation and Back-Translation Library
+/* liblouis Braille Translation and Back-Translation Library
 
    Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by The
    BRLTTY Team
@@ -41,7 +41,15 @@ typedef unsigned short int widechar;
 // clang-format on
 typedef unsigned short formtype;
 
+#ifdef _MSC_VER
+#ifdef _EXPORTING
+#define LIBLOUIS_API __declspec(dllexport)
+#else
+#define LIBLOUIS_API __declspec(dllimport)
+#endif
+#else
 #define LIBLOUIS_API
+#endif
 
 #ifdef __EMSCRIPTEN__
 #include "emscripten.h"
@@ -91,16 +99,17 @@ typedef enum {
 	noContractions = 1,
 	compbrlAtCursor = 2,
 	dotsIO = 4,
-	// for historic reasons 8 is free
-	pass1Only = 16,  // defunct
+	// for historic reasons 8 and 16 are free
 	compbrlLeftCursor = 32,
 	ucBrl = 64,
-	noUndefinedDots = 128,
+	noUndefined = 128,
 	partialTrans = 256
 } translationModes;
 
+#define noUndefinedDots noUndefined
+
 LIBLOUIS_API
-char *EXPORT_CALL
+const char *EXPORT_CALL
 lou_version(void);
 
 /**
@@ -185,7 +194,7 @@ void EXPORT_CALL
 lou_logFile(const char *filename);
 
 /**
- * Read a character from a file, whether big-encian, little-endian or ASCII8
+ * Read a character from a file, whether big-endian, little-endian or ASCII8
  *
  * and return it as an integer. EOF at end of file. Mode = 1 on first
  * call, any other value thereafter
@@ -214,7 +223,7 @@ lou_logEnd(void);
  * and by the tools.
  */
 LIBLOUIS_API
-void *EXPORT_CALL
+const void *EXPORT_CALL
 lou_getTable(const char *tableList);
 
 /**
@@ -286,16 +295,16 @@ char *EXPORT_CALL
 lou_getDataPath(void);
 
 typedef enum {
-	LOG_ALL = 0,
-	LOG_DEBUG = 10000,
-	LOG_INFO = 20000,
-	LOG_WARN = 30000,
-	LOG_ERROR = 40000,
-	LOG_FATAL = 50000,
-	LOG_OFF = 60000
+	LOU_LOG_ALL = 0,
+	LOU_LOG_DEBUG = 10000,
+	LOU_LOG_INFO = 20000,
+	LOU_LOG_WARN = 30000,
+	LOU_LOG_ERROR = 40000,
+	LOU_LOG_FATAL = 50000,
+	LOU_LOG_OFF = 60000
 } logLevels;
 
-typedef void (*logcallback)(logLevels level, const char *message);
+typedef void(EXPORT_CALL *logcallback)(logLevels level, const char *message);
 
 /**
  * Register logging callbacks
@@ -311,6 +320,37 @@ lou_registerLogCallback(logcallback callback);
 LIBLOUIS_API
 void EXPORT_CALL
 lou_setLogLevel(logLevels level);
+
+typedef enum { LOU_ROW_BRAILLE = 0X2800 } LOU_UnicodeConstants;
+
+/* ========================= Sort-of private API ========================= */
+
+/**
+ * Definitions of braille dots
+ */
+typedef enum BrailleDots {
+	LOU_DOT_1 = 0X01,	/** dot 1 */
+	LOU_DOT_2 = 0X02,	/** dot 2 */
+	LOU_DOT_3 = 0X04,	/** dot 3 */
+	LOU_DOT_4 = 0X08,	/** dot 4 */
+	LOU_DOT_5 = 0X10,	/** dot 5 */
+	LOU_DOT_6 = 0X20,	/** dot 6 */
+	LOU_DOT_7 = 0X40,	/** dot 7 */
+	LOU_DOT_8 = 0X80,	/** dot 8 */
+	LOU_DOT_9 = 0X100,   /** virtual dot 9 */
+	LOU_DOT_10 = 0X200,  /** virtual dot A */
+	LOU_DOT_11 = 0X400,  /** virtual dot B */
+	LOU_DOT_12 = 0X800,  /** virtual dot C */
+	LOU_DOT_13 = 0X1000, /** virtual dot D */
+	LOU_DOT_14 = 0X2000, /** virtual dot E */
+	LOU_DOT_15 = 0X4000, /** virtual dot F */
+	LOU_DOTS = 0X8000	/** if this bit is true, the widechar represents a dot pattern */
+} BrailleDots;
+
+/**
+ * A sentinel, used in liblouisutdml
+ */
+#define LOU_ENDSEGMENT 0xffff
 
 /* =========================  BETA API ========================= */
 
@@ -365,7 +405,7 @@ lou_findTables(const char *query);
  * of the returned string is the responsibility of the caller.
  */
 LIBLOUIS_API
-const char *EXPORT_CALL
+char *EXPORT_CALL
 lou_getTableInfo(const char *table, const char *key);
 
 /**
@@ -379,7 +419,7 @@ lou_getTableInfo(const char *table, const char *key);
  * strings is the responsibility of the caller.
  */
 LIBLOUIS_API
-const char **EXPORT_CALL
+char **EXPORT_CALL
 lou_listTables(void);
 
 /* ====================== END OF BETA API ====================== */
