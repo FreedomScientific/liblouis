@@ -23,6 +23,14 @@ EXTRA_DIST =					\
 	da-dk-g28l.yaml				\
 	de-ch-g1.yaml				\
 	de-de-comp8.yaml			\
+	de-eurobrl6.yaml			\
+	de-g0-bidi-dictionary.yaml		\
+	de-g0-bidi-specs.yaml			\
+	de-g0-specs.yaml			\
+	de-g1-bidi-dictionary.yaml		\
+	de-g1-bidi-specs.yaml			\
+	de-g1-specs.yaml			\
+	de-g2-specs.yaml			\
 	el-backward.yaml			\
 	el-forward.yaml				\
 	en-GB-g2_backward.yaml			\
@@ -67,6 +75,7 @@ EXTRA_DIST =					\
 	grc-international-common.yaml		\
 	grc-international-composed.yaml		\
 	grc-international-decomposed.yaml	\
+	he-IL.yaml				\
 	hi_harness.yaml				\
 	hr-8dots_harness.yaml			\
 	hu-hu-comp8_backward.yaml		\
@@ -83,6 +92,7 @@ EXTRA_DIST =					\
 	lt_harness.yaml				\
 	lv_harness.yaml				\
 	mn-MN_harness.yaml			\
+	ms-my-g2.yaml				\
 	nl-comp8_harness.yaml			\
 	nl-NL-g0_harness.yaml			\
 	nl-g0_harness.yaml			\
@@ -96,6 +106,7 @@ EXTRA_DIST =					\
 	Pl-Pl-g1_harness.yaml			\
 	pl-pl-comp8_harness.yaml		\
 	pt-g1.yaml				\
+	ru.yaml					\
 	sk-g1_harness.yaml			\
 	sl-g1.yaml				\
 	spaces.yaml				\
@@ -103,6 +114,7 @@ EXTRA_DIST =					\
 	ta-ta-g1_harness.yaml			\
 	uk.yaml					\
 	ur-pk-g2.yaml				\
+	uz.yaml				  	\
 	vi-g1_backward.yaml			\
 	vi-g1_harness.yaml			\
 	zh-chn.yaml				\
