@@ -22,7 +22,7 @@
 #  License along with liblouis. If not, see
 #  <http://www.gnu.org/licenses/>.
 
-include chardefs.cti All character definition opcodes
+include en-chardefs.cti All character definition opcodes
 include nemethdefs.cti
 
 # Braille indicators
@@ -74,8 +74,8 @@ always \\ 456-16
 always | 1256
 always $ 4-234
 repeated \s 0
-noback context ["\X25A1"]$d @1246-256-5
-noback context ["\X25A0"]$d @1246-456-256-5
+noback context ["\x25A1"]$d @1246-256-5
+noback context ["\x25A0"]$d @1246-456-256-5
 always \x00b0 45-46-16
 always \x00B1 346-36
 
