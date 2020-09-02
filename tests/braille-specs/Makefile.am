@@ -5,6 +5,7 @@ EXTRA_DIST =					\
 	ar-ar-g1_harness.yaml			\
 	ar-ar-g2.yaml				\
 	chr-us-g1_harness.yaml			\
+	cop-eg.yaml				\
 	cs_harness.yaml				\
 	cs-comp8_harness.yaml			\
 	da-dk-g08.yaml				\
@@ -91,6 +92,7 @@ EXTRA_DIST =					\
 	lt-6dot_harness.yaml			\
 	lt_harness.yaml				\
 	lv_harness.yaml				\
+	ml.yaml					\
 	mn-MN_harness.yaml			\
 	ms-my-g2.yaml				\
 	nl-comp8_harness.yaml			\
@@ -114,7 +116,7 @@ EXTRA_DIST =					\
 	ta-ta-g1_harness.yaml			\
 	uk.yaml					\
 	ur-pk-g2.yaml				\
-	uz.yaml				  	\
+	uz.yaml					\
 	vi-g1_backward.yaml			\
 	vi-g1_harness.yaml			\
 	zh-chn.yaml				\

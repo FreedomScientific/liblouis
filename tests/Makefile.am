@@ -16,6 +16,7 @@ LDADD =							\
 
 checkTable_SOURCES = checkTable.c
 emphclass_SOURCES = emphclass.c
+attributeNames_SOURCES = attributeNames.c
 findTable_SOURCES = findTable.c
 getTable_SOURCES = getTable.c
 hash_collision_SOURCES = hash_collision.c
@@ -36,6 +37,7 @@ program_TESTS =					\
 	checkTable				\
 	check_metadata				\
 	emphclass				\
+	attributeNames				\
 	findTable				\
 	getTable				\
 	hash_collision				\
@@ -70,6 +72,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/ar-ar-g1_harness.yaml		  \
 	braille-specs/ar-ar-g2.yaml			  \
 	braille-specs/chr-us-g1_harness.yaml		  \
+	braille-specs/cop-eg.yaml			  \
 	braille-specs/cs_harness.yaml			  \
 	braille-specs/cs-comp8_harness.yaml		  \
 	braille-specs/da-dk-g08.yaml			  \
@@ -158,6 +161,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/lt_harness.yaml			  \
 	braille-specs/lt-6dot_harness.yaml		  \
 	braille-specs/lv_harness.yaml			  \
+	braille-specs/ml.yaml				  \
 	braille-specs/mn-MN_harness.yaml		  \
 	braille-specs/ms-my-g2.yaml			  \
 	braille-specs/nl-comp8_harness.yaml		  \
@@ -266,5 +270,6 @@ AM_TESTS_ENVIRONMENT =								\
 	UEB_TEST_DATA_PATH=$(top_srcdir)/tests/ueb_test_data			\
 	LD_LIBRARY_PATH=$(top_builddir)/liblouis/.libs:$$LD_LIBRARY_PATH	\
 	PATH=$(top_builddir)/tools:$$PATH					\
+	WINEPATH=$(top_builddir)/tools						\
 	WINE=$(WINE)								\
 	EXEEXT=$(EXEEXT)
