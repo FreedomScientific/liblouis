@@ -2228,7 +2228,11 @@ undefinedCharacter(widechar c, const TranslationTableHeader *table, int pos,
 
 	const char *text = (mode & noUndefined) ? "" : _lou_showString(&c, 1, 1);
 	size_t length = strlen(text);
+	#ifdef _MSC_VER
+	widechar *dots = (widechar *) _alloca(length*sizeof(widechar));
+	#else
 	widechar dots[length];
+	#endif
 
 	for (unsigned int k = 0; k < length; k += 1) {
 		dots[k] = 0;
