@@ -13,10 +13,15 @@ table_files = \
 	as.tbl \
 	awa.tbl \
 	aw-in-g1.utb \
+	ba.utb \
 	be-in-g1.utb \
+	bel.utb \
+	bel-comp.utb \
 	bengali.cti \
+	bg.dis \
 	bg.ctb \
 	bg.tbl \
+	bg.utb \
 	bh.ctb \
 	bh.tbl \
 	bn.tbl \
@@ -109,6 +114,7 @@ table_files = \
 	en_US-comp8-ext.tbl \
 	en-us-comp8-ext.utb \
 	en-us-compbrl.uti \
+	en-us-emphasis.uti \
 	en-us-g1.ctb \
 	en-us-g2.ctb \
 	en-us-interline.ctb \
@@ -154,8 +160,6 @@ table_files = \
 	gurumuki.cti \
 	gu.tbl \
 	haw-us-g1.ctb \
-	he.ctb \
-	he.tbl \
 	he-IL.utb \
 	he-IL-comp8.utb \
 	hi-in-g1.utb \
@@ -209,6 +213,9 @@ table_files = \
 	kannada.cti \
 	kha.tbl \
 	kh-in-g1.utb \
+	kk.utb \
+	km-g1.utb \
+	kmr.tbl \
 	kn.tbl \
 	ko-2006.cti \
 	ko-2006-g1.ctb \
@@ -256,6 +263,8 @@ table_files = \
 	mun.tbl \
 	mwr.ctb \
 	mwr.tbl \
+	my-g1.utb \
+	my-g2.ctb \
 	ne.ctb \
 	nemethdefs.cti \
 	ne.tbl \
@@ -282,6 +291,8 @@ table_files = \
 	no-no-latinLetterDef6Dots_diacritics.uti \
 	no.tbl \
 	np-in-g1.utb \
+	nso-za-g1.utb \
+	nso-za-g2.ctb \
 	or-in-g1.utb \
 	oriya.cti \
 	or.tbl \
@@ -304,12 +315,12 @@ table_files = \
 	ru.ctb \
 	ru-letters.dis \
 	ru-litbrl.ctb \
+	ru-litbrl-detailed.utb \
 	ru-ru.dis \
-	ru-ru-g1.utb \
-	ru.tbl \
 	ru-unicode.dis \
 	sa-in-g1.utb \
 	sa.tbl \
+	sah.utb \
 	sd.tbl \
 	se-se.ctb \
 	se-se.dis \
@@ -327,6 +338,7 @@ table_files = \
 	sl-si-g1.utb \
 	sl.tbl \
 	sot-za-g1.ctb \
+	sot-za-g2.ctb \
 	spaces.uti \
 	sr-chardefs.cti \
 	sr-g1.ctb \
@@ -348,6 +360,8 @@ table_files = \
 	tr-g2.tbl \
 	tr.tbl \
 	tsn-za-g1.ctb \
+	tsn-za-g2.ctb \
+	tt.utb \
 	ukchardefs.cti \
 	ukmaths_single_cell_defs.cti \
 	ukmaths_unicode_defs.cti \
@@ -362,10 +376,17 @@ table_files = \
 	us-table.dis \
 	uz-g1.utb \
 	vi.ctb \
-	vi-g1.ctb \
-	vi.tbl \
+	vi-charsdef.uti \
+	vi-lettersdef.uti \
+	vi-puncsdef.uti \
+	vi-saigon-g1.ctb \
+	vi-vn-g0.utb \
+	vi-vn-g1.ctb \
+	vi-vn-g2.ctb \
 	wiskunde-chardefs.cti \
 	wordcx.dis \
+	xh-za-g1.utb \
+	xh-za-g2.ctb \
 	zh-chn.ctb \
 	zh_CHN.tbl \
 	zhcn-g1.ctb \
@@ -373,7 +394,9 @@ table_files = \
 	zh-hk.ctb \
 	zh_HK.tbl \
 	zh-tw.ctb \
-	zh_TW.tbl 
+	zh_TW.tbl \
+	zu-za-g1.utb \
+	zu-za-g2.ctb
 
 tablesdir = $(datadir)/liblouis/tables
 tables_DATA = $(table_files)

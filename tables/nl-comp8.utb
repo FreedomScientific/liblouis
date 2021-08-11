@@ -8,7 +8,7 @@
 #
 #  liblouis is free software: you can redistribute it and/or modify it
 #  under the terms of the GNU Lesser General Public License as
-#  published by the Free Software Foundation, either version 3 of the
+#  published by the Free Software Foundation, either version 2.1 of the
 #  License, or (at your option) any later version.
 #
 #  liblouis is distributed in the hope that it will be useful, but
@@ -23,8 +23,9 @@
 # -------------------------------------------------------------------------------
 #
 #  Dutch Computer Braille as used in Belgium and the Netherlands
-#  Version 2020.1, June 1st, 2020
-#  Please consult the Dutch Braille Authority website for more information
+#  Version 2020.1, October 28th, 2020
+#  See «Achtpunts braillestandaard voor het Nederlandse taalgebied, versie 2020»
+#  by Braille Autoriteit <http://liblouis.org/braille-specs/dutch/>
 #
 
 #-index-name: Dutch, computer

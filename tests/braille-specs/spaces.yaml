@@ -921,7 +921,7 @@ tests:
   - ['\x200b', '\x0020']
   - ['\x202f', '\x0020']
   - ['\x202f', '\x0020']
-table: he.tbl,spaces.uti
+table: he-IL-comp8.utb,spaces.uti
 flags: {testmode: bothDirections}
 tests:
   - ['\x0020', '\x0020']
@@ -1752,28 +1752,6 @@ tests:
   - ['\x000a', '\x0020']
   - ['\x000c', '\x0020']
   - ['\x000d', '\x0020']
-table: ru-ru-g1.utb
-flags: {testmode: bothDirections}
-tests:
-  - ['\x0020', '\x0020']
-  - ['\x00a0', 'a']
-flags: {testmode: forward}
-tests:
-  - ['\x0009', '\x0020']
-  - ['\x000a', '\x0020']
-  - ['\x000c', '\x0020']
-  - ['\x000d', '\x0020']
-table: ru.tbl
-flags: {testmode: bothDirections}
-tests:
-  - ['\x0009', '9']
-  - ['\x0020', '\x0020']
-  - ['\x00a0', 'a']
-flags: {testmode: forward}
-tests:
-  - ['\x000a', '\x0020']
-  - ['\x000c', '\x0020']
-  - ['\x000d', '\x0020']
 table: sa.tbl
 flags: {testmode: bothDirections}
 tests:
@@ -2026,16 +2004,6 @@ tests:
   - ['\x0020', '\x0020']
 flags: {testmode: forward}
 tests:
-  - ['\x00a0', '\x0020']
-table: vi.tbl
-flags: {testmode: bothDirections}
-tests:
-  - ['\x0020', '\x0020']
-flags: {testmode: forward}
-tests:
-  - ['\x0009', '\x0020']
-  - ['\x000a', '\x0020']
-  - ['\x000d', '\x0020']
   - ['\x00a0', '\x0020']
 table: zh_CHN.tbl
 flags: {testmode: bothDirections}
