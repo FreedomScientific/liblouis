@@ -145,13 +145,13 @@ static int appliedRulesCount;
 static TranslationTableCharacter *
 getChar(widechar c, const TranslationTableHeader *table) {
 	static TranslationTableCharacter notFound = { 0, 0, 0, CTC_Space, 32, 32, 32 };
-	unsigned long int makeHash = _lou_charHash(c);
-	TranslationTableOffset bucket = table->characters[makeHash];
-	while (bucket) {
+	const TranslationTableOffset bucket = table->characters[_lou_charHash(c)];
+	TranslationTableOffset offset = bucket;
+	while (offset) {
 		TranslationTableCharacter *character =
-				(TranslationTableCharacter *)&table->ruleArea[bucket];
+				(TranslationTableCharacter *)&table->ruleArea[offset];
 		if (character->realchar == c) return character;
-		bucket = character->next;
+		offset = character->next;
 	}
 	notFound.realchar = notFound.uppercase = notFound.lowercase = c;
 	return &notFound;
@@ -161,13 +161,13 @@ static TranslationTableCharacter *
 getDots(widechar c, const TranslationTableHeader *table) {
 	static TranslationTableCharacter notFound = { 0, 0, 0, CTC_Space, LOU_DOTS, LOU_DOTS,
 		LOU_DOTS };
-	unsigned long int makeHash = _lou_charHash(c);
-	TranslationTableOffset bucket = table->dots[makeHash];
-	while (bucket) {
+	const TranslationTableOffset bucket = table->dots[_lou_charHash(c)];
+	TranslationTableOffset offset = bucket;
+	while (offset) {
 		TranslationTableCharacter *character =
-				(TranslationTableCharacter *)&table->ruleArea[bucket];
+				(TranslationTableCharacter *)&table->ruleArea[offset];
 		if (character->realchar == c) return character;
-		bucket = character->next;
+		offset = character->next;
 	}
 	notFound.realchar = notFound.uppercase = notFound.lowercase = c;
 	return &notFound;
@@ -3789,14 +3789,16 @@ translateString(const TranslationTableHeader *table, int mode, int currentPass,
 			pos++;
 			break;
 		case CTO_UpperCase:
-			/* Only needs special handling if not within compbrl and
-			 * the table defines a capital sign. */
+			/* Only needs special handling if not within compbrl and the table defines a
+			 * capital sign. */
 			if (!(mode & (compbrlAtCursor | compbrlLeftCursor)) &&
-					(transRule->dotslen == 1 && capsletterDefined(table))) {
-				if (!putCharacter(curCharDef->lowercase, table, pos, input, output,
-							posMapping, cursorPosition, cursorStatus, mode))
-					goto failure;
-				pos++;
+					capsletterDefined(table)) {
+				for (k = 0; k < transCharslen; k++) {
+					if (!putCharacter(input->chars[pos], table, pos, input, output,
+								posMapping, cursorPosition, cursorStatus, mode))
+						goto failure;
+					pos++;
+				}
 				break;
 			}
 		default: {
