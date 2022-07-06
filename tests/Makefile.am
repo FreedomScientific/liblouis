@@ -104,6 +104,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/de-g1-dictionary.yaml		  \
 	braille-specs/de-g2.yaml			  \
 	braille-specs/de-g2-sbs.yaml			  \
+	braille-specs/de-g2-detailed-specs.yaml		  \
 	braille-specs/de-g2-dictionary.yaml		  \
 	braille-specs/el-backward.yaml			  \
 	braille-specs/el-forward.yaml			  \
@@ -159,6 +160,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/hu-hu-g1_braille_input_backward.yaml\
 	braille-specs/hu-hu-g1_braille_input_forward.yaml \
 	braille-specs/hu-hu-g1-numbers.yaml		  \
+	braille-specs/hu-hu-g1_special_consonants.yaml		  \
 	braille-specs/hu-hu-g2_harness.yaml 		  \
 	braille-specs/hu-hu-g2_backward.yaml 		  \
 	braille-specs/hu-hu-g2-numbers.yaml		  \
@@ -183,6 +185,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/no_g2_harness.yaml		  \
 	braille-specs/no_harness.yaml			  \
 	braille-specs/no_typeform_harness.yaml		  \
+	braille-specs/pa.yaml				  \
 	braille-specs/pl-g1.yaml			  \
 	braille-specs/pl-pl-comp8_harness.yaml		  \
 	braille-specs/pt-g1.yaml			  \
@@ -243,6 +246,7 @@ dist_yaml_TESTS =				\
 	yaml/multipass-vs-match.yaml		\
 	yaml/new_emph.yaml			\
 	yaml/noletsignafter.yaml		\
+	yaml/nonumsign.yaml			\
 	yaml/numericmode.yaml			\
 	yaml/partialTrans.yaml			\
 	yaml/pass0_typebuf.yaml			\

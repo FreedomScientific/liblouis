@@ -36,6 +36,7 @@ EXTRA_DIST =					\
 	de-g1.yaml				\
 	de-g1-dictionary.yaml			\
 	de-g2.yaml				\
+	de-g2-detailed-specs.yaml		\
 	de-g2-dictionary.yaml			\
 	de-g2-sbs.yaml				\
 	el-backward.yaml			\
@@ -93,6 +94,7 @@ EXTRA_DIST =					\
 	hu-hu-g1_braille_input_backward.yaml	\
 	hu-hu-g1_braille_input_forward.yaml	\
 	hu-hu-g1-numbers.yaml			\
+	hu-hu-g1_special_consonants.yaml			\
 	hu-hu-g2_harness.yaml			\
 	hu-hu-g2_backward.yaml			\
 	hu-hu-g2-numbers.yaml			\
@@ -117,6 +119,7 @@ EXTRA_DIST =					\
 	no_g2_harness.yaml			\
 	no_harness.yaml				\
 	no_typeform_harness.yaml		\
+	pa.yaml					\
 	pl-g1.yaml				\
 	pl-pl-comp8_harness.yaml		\
 	pt-g1.yaml				\

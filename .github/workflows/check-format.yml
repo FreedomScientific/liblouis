@@ -1,8 +1,12 @@
 name: Check format
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
+    paths:
+      - '**.h'
+      - '**.c'
   pull_request:
     branches: [ master ]
 

@@ -85,6 +85,7 @@ table_files = \
 	de-g2-core.cti \
 	de-g2-core-patterns.dic \
 	de-g2.ctb \
+	de-g2-detailed.ctb \
 	devanagari.cti \
 	digits6DotsPlusDot6.uti \
 	digits6Dots.uti \
@@ -288,7 +289,6 @@ table_files = \
 	no-no-generic.ctb \
 	no-no-generic.dis \
 	no-no-latinLetterDef6Dots_diacritics.uti \
-	no.tbl \
 	np-in-g1.utb \
 	nso-za-g1.utb \
 	nso-za-g2.ctb \
@@ -327,12 +327,9 @@ table_files = \
 	si-in-g1.utb \
 	sin.cti \
 	sin.utb \
-	sk-chardefs.cti \
 	sk-g1.ctb \
 	sk-sk-g1.utb \
 	sk-sk.utb \
-	sk.tbl \
-	sk-translation.cti \
 	sl-si-comp8.ctb \
 	sl-si-g1.utb \
 	sl.tbl \
