@@ -650,7 +650,7 @@ doPassSearch(const TranslationTableHeader *table, const InString *input,
 					if (input->chars[*searchPos] == LOU_ENDSEGMENT)
 						itsTrue = 0;
 					else {
-						itsTrue = (passCharDots ? getDots(input->chars[(*searchPos)++],
+						itsTrue = (int) (passCharDots ? getDots(input->chars[(*searchPos)++],
 														  table)
 												: getChar(input->chars[(*searchPos)++],
 														  table))
@@ -1605,8 +1605,8 @@ brailleIndicatorDefined(TranslationTableOffset offset,
  * pattern. Otherwise return 0.
  */
 static int
-isIndicatorEqual(const TranslationTableOffset *indicator1,
-		const TranslationTableOffset *indicator2, const TranslationTableHeader *table) {
+isIndicatorEqual(const TranslationTableOffset indicator1,
+		const TranslationTableOffset indicator2, const TranslationTableHeader *table) {
 	const TranslationTableRule *indicatorRule1;
 	const TranslationTableRule *indicatorRule2;
 
@@ -2291,7 +2291,11 @@ undefinedCharacter(widechar c, const TranslationTableHeader *table, int pos,
 
 	const char *text = (mode & noUndefined) ? "" : _lou_showString(&c, 1, 1);
 	size_t length = strlen(text);
+#ifdef _MSC_VER
+	widechar *dots = (widechar *)_alloca((length == 0 ? 1 : length) * sizeof(widechar));
+#else
 	widechar dots[length == 0 ? 1 : length];
+#endif
 
 	for (unsigned int k = 0; k < length; k += 1) {
 		dots[k] = 0;
