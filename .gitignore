@@ -338,6 +338,15 @@ output.txt
 /extra/generate-display-names/generate.o
 /extra/generate-display-names/generate.log
 
+#/VisualStudio
+/VisualStudio/.vs/
+/VisualStudio/Liblouis.vcxproj.user
+/bin/
+/lib/
+/liblouis/liblouis-17.def
+/liblouis/liblouis-20.def
+/obj/
+
 # stuff for local development
 local/
 local
