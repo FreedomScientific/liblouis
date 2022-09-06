@@ -237,6 +237,7 @@ table_files = \
 	latinUppercaseComp6.uti \
 	litdigits6DotsPlusDot6.uti \
 	litdigits6Dots.uti \
+	lg-ug-g1.utb \
 	loweredDigits6Dots.uti \
 	loweredDigits8Dots.uti \
 	latinLowercase.uti \
@@ -317,13 +318,13 @@ table_files = \
 	ru-litbrl-detailed.utb \
 	ru-ru-g1.ctb \
 	ru-unicode.dis \
+	rw-rw-g1.utb \
 	sa-in-g1.utb \
 	sa.tbl \
 	sah.utb \
 	sd.tbl \
 	se-se.ctb \
 	se-se.dis \
-	Se-Se-g1.utb \
 	si-in-g1.utb \
 	sin.cti \
 	sin.utb \
@@ -341,7 +342,9 @@ table_files = \
 	sr.tbl \
 	sv-1989.ctb \
 	sv-1996.ctb \
-	sv.tbl \
+	sv-g0.utb \
+	sv-g1.ctb \
+	sv-g2.ctb \
 	ta.ctb \
 	tamil.cti \
 	ta-ta-g1.ctb \
@@ -387,6 +390,7 @@ table_files = \
 	xh-za-g2.ctb \
 	zh-chn.ctb \
 	zh_CHN.tbl \
+	zhcn-cbs.ctb \
 	zhcn-g1.ctb \
 	zhcn-g2.ctb \
 	zh-hk.ctb \
