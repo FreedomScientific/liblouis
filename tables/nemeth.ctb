@@ -175,7 +175,7 @@ repeated ^1 a
 
 # Function names and abbreviations
 always acos 1-14-135-234-a
-always antilog 1-1345-2345-24-123-135-1234-a
+always antilog 1-1345-2345-24-123-135-1245-a
 always arc 1-1235-14-a
 always arccos 1-1235-14-14-135-234-a
 always arg 1-1235-1245-a
@@ -192,7 +192,7 @@ always csch 14-234-14-125-a
 always erf 15-1235-124-a
 always inf 24-1345-124-a
 always ln 123-1345-a
-always log 123-135-1234-a
+always log 123-135-1245-a
 always max 134-1-1346-a
 always min 134-24-1345-a
 always sec 234-15-14-a
