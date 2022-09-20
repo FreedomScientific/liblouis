@@ -73,6 +73,8 @@ always @ 4-1
 always \\ 456-16
 always | 1256
 always $ 4-234
+always \x27E8 46-46-12356 left angle bracket
+always \x27E9 46-46-23456 right angle bracket
 repeated \s 0
 noback context ["\x25A1"]$d @1246-256-5
 noback context ["\x25A0"]$d @1246-456-256-5
