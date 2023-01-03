@@ -11,20 +11,25 @@ EXTRA_DIST =					\
 	cop-eg.yaml				\
 	cs_harness.yaml				\
 	cs-comp8_harness.yaml			\
+	da-dk-g08_1993.yaml				\
 	da-dk-g08.yaml				\
+	da-dk-g16_1993.yaml				\
 	da-dk-g16.yaml				\
-	da-dk-g16-dictionary_harness.yaml	\
-	da-dk-g16-lit.yaml			\
-	da-dk-g18-dictionary_harness.yaml	\
+	da-dk-g16-lit_1993.yaml			\
+	da-dk-g18_1993.yaml				\
 	da-dk-g18.yaml				\
+	da-dk-g26_1993.yaml				\
 	da-dk-g26.yaml				\
+	da-dk-g26-dictionary_harness_1993.yaml	\
 	da-dk-g26-dictionary_harness.yaml	\
-	da-dk-g26-lit.yaml			\
-	da-dk-g26l.yaml				\
-	da-dk-g26l-lit.yaml			\
+	da-dk-g26-lit_1993.yaml			\
+	da-dk-g26l_1993.yaml				\
+	da-dk-g26l-lit_1993.yaml			\
+	da-dk-g28-dictionary_harness_1993.yaml	\
 	da-dk-g28-dictionary_harness.yaml	\
+	da-dk-g28_1993.yaml				\
 	da-dk-g28.yaml				\
-	da-dk-g28l.yaml				\
+	da-dk-g28l_1993.yaml				\
 	de-comp6.yaml				\
 	de-de-comp8.yaml			\
 	de-eurobrl6.yaml			\
@@ -38,6 +43,7 @@ EXTRA_DIST =					\
 	de-g2.yaml				\
 	de-g2-detailed-specs.yaml		\
 	de-g2-dictionary.yaml			\
+	de-g2-blista-dictionary.yaml 		\
 	de-g2-sbs.yaml				\
 	el-backward.yaml			\
 	el-forward.yaml				\
@@ -100,6 +106,7 @@ EXTRA_DIST =					\
 	hu-hu-g2-numbers.yaml			\
 	iu-ca-g1_harness.yaml			\
 	ja-kantenji.yaml			\
+	ka.yaml					\
 	kk.yaml					\
 	kmr.yaml				\
 	ko-2006-g2_harness.yaml			\
@@ -120,6 +127,7 @@ EXTRA_DIST =					\
 	no_g2_harness.yaml			\
 	no_harness.yaml				\
 	no_typeform_harness.yaml		\
+	ny-mw.yaml				\
 	pa.yaml					\
 	pl-g1.yaml				\
 	pl-pl-comp8_harness.yaml		\
@@ -133,6 +141,8 @@ EXTRA_DIST =					\
 	sr-g1_harness.yaml			\
 	st-g2.yaml				\
 	sv.yaml					\
+	sw-ke-dictionary.yaml			\
+	sw-ke.yaml				\
 	ta-ta-g1_harness.yaml			\
 	tt.yaml					\
 	uk.yaml					\
@@ -143,6 +153,7 @@ EXTRA_DIST =					\
 	xh-g2.yaml				\
 	zh-chn.yaml				\
 	zh-tw.yaml				\
+	zh-tw-dictionary.yaml				\
 	zhcn-cbs.yaml				\
 	zhcn-g1.yaml				\
 	zhcn-g2.yaml

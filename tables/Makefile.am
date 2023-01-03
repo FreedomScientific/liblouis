@@ -52,18 +52,28 @@ table_files = \
 	cy-cy-g1.utb \
 	cy-cy-g2.ctb \
 	cy.tbl \
+	da-dk-6miscChars_1993.cti \
 	da-dk-6miscChars.cti \
+	da-dk-8miscChars_1993.cti \
 	da-dk-8miscChars.cti \
+	da-dk-g08_1993.ctb \
 	da-dk-g08.ctb \
+	da-dk-g16_1993.ctb \
 	da-dk-g16.ctb \
-	da-dk-g16-lit.ctb \
+	da-dk-g16-lit_1993.ctb \
+	da-dk-g18_1993.ctb \
 	da-dk-g18.ctb \
+	da-dk-g26_1993.ctb \
 	da-dk-g26.ctb \
-	da-dk-g26l.ctb \
-	da-dk-g26-lit.ctb \
-	da-dk-g26l-lit.ctb \
+	da-dk-g26l_1993.ctb \
+	da-dk-g26-lit_1993.ctb \
+	da-dk-g26l-lit_1993.ctb \
+	da-dk-g28_1993.ctb \
 	da-dk-g28.ctb \
-	da-dk-g28l.ctb \
+	da-dk-g28l_1993.ctb \
+	da-dk-g2_1993.dic \
+	da-dk-g2.dic \
+	da-dk-octobraille_1993.dis \
 	da-dk-octobraille.dis \
 	de-accents.cti \
 	de-accents-detailed.cti \
@@ -181,7 +191,6 @@ table_files = \
 	hu-hu-g2_exceptions.cti \
 	hu.tbl \
 	hy.ctb \
-	hyph_brl_da_dk.dic \
 	hyph_cs_CZ.dic \
 	hyph_da_DK.dic \
 	hyph_de_DE.dic \
@@ -210,6 +219,7 @@ table_files = \
 	it.tbl \
 	iu-ca-g1.ctb \
 	ja-kantenji.utb \
+	ka.utb \
 	ka-in-g1.utb \
 	kannada.cti \
 	kha.tbl \
@@ -293,6 +303,7 @@ table_files = \
 	np-in-g1.utb \
 	nso-za-g1.utb \
 	nso-za-g2.ctb \
+	ny-mw.utb \
 	or-in-g1.utb \
 	oriya.cti \
 	or.tbl \
@@ -345,6 +356,12 @@ table_files = \
 	sv-g0.utb \
 	sv-g1.ctb \
 	sv-g2.ctb \
+	sw-ke-g1-2.ctb \
+	sw-ke-g1-3.ctb \
+	sw-ke-g1-4.ctb \
+	sw-ke-g1-5.ctb \
+	sw-ke-g1.utb \
+	sw-ke-g2.ctb \
 	ta.ctb \
 	tamil.cti \
 	ta-ta-g1.ctb \
@@ -396,9 +413,15 @@ table_files = \
 	zh-hk.ctb \
 	zh_HK.tbl \
 	zh-tw.ctb \
-	zh_TW.tbl \
 	zu-za-g1.utb \
 	zu-za-g2.ctb
+
+comma=,
+fuzzing_yml = $(top_srcdir)/.github/workflows/fuzzing.yml
+$(fuzzing_yml): $(srcdir)/Makefile.am
+	[ ! -w $(fuzzing_yml) ] || sed -i -e "s/table: .*/table: [ $(patsubst %,%$(comma),$(filter %.utb %.ctb,$(table_files))) ]/" $(fuzzing_yml)
+
+all-local: $(fuzzing_yml)
 
 tablesdir = $(datadir)/liblouis/tables
 tables_DATA = $(table_files)
