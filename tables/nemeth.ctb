@@ -62,6 +62,7 @@ always > a-46-2-a
 postpunc ? 456-236
 endnum % 4-356
 always ~~ 4-156-5-4-156
+always \x2248 a-4-156-4-156-a almost equals
 always ~ 4-156
 always & 456-12346
 midnum * 4-16
@@ -73,6 +74,8 @@ always @ 4-1
 always \\ 456-16
 always | 1256
 always $ 4-234
+always \x27E8 46-46-12356 left angle bracket
+always \x27E9 46-46-23456 right angle bracket
 repeated \s 0
 noback context ["\x25A1"]$d @1246-256-5
 noback context ["\x25A0"]$d @1246-456-256-5
@@ -172,39 +175,37 @@ always ^| 1256
 always ^/ 34
 always ^* 16
 repeated ^1 a
-
+# Functions commented out for JAWS per MathServer-side fix in BZ121179
 # Function names and abbreviations
-always acos 1-14-135-234-a
-always antilog 1-1345-2345-24-123-135-1234-a
-always arc 1-1235-14-a
-always arccos 1-1235-14-14-135-234-a
-always arg 1-1235-1245-a
-always asin 1-234-24-1345-a
-always atan 1-2345-1-1345-a
-always colog 14-123-135-1245-a
-always cos 14-135-234-a
-always cosh 14-135-234-125-a
-always cot 14-135-2345-a
-always coth 14-135-2345-125-a
-always covers 14-135-1236-15-1235-234-a
-always csc 14-234-14-a
-always csch 14-234-14-125-a
-always erf 15-1235-124-a
-always inf 24-1345-124-a
-always ln 123-1345-a
-always log 123-135-1234-a
-always max 134-1-1346-a
-always min 134-24-1345-a
-always sec 234-15-14-a
-always sech 234-15-14-125-a
-always sin 234-24-1345-a
-always sinh 234-24-1345-125-a
-always tan 2345-1-1345-a
-always tanh 2345-1-135-125-a
-always vers 1236-15-1235-234-a
-
-
-
+# always acos 1-14-135-234-a
+# always antilog 1-1345-2345-24-123-135-1245-a
+# always arc 1-1235-14-a
+# always arccos 1-1235-14-14-135-234-a
+# always arg 1-1235-1245-a
+# always asin 1-234-24-1345-a
+# always atan 1-2345-1-1345-a
+# always colog 14-123-135-1245-a
+# always cos 14-135-234-a
+# always cosh 14-135-234-125-a
+# always cot 14-135-2345-a
+# always coth 14-135-2345-125-a
+# always covers 14-135-1236-15-1235-234-a
+# always csc 14-234-14-a
+# always csch 14-234-14-125-a
+# always erf 15-1235-124-a
+# always inf 24-1345-124-a
+# always ln 123-1345-a
+# always log 123-135-1245-a
+# always max 134-1-1346-a
+# always min 134-24-1345-a
+# always sec 234-15-14-a
+# always sech 234-15-14-125-a
+# always sin 234-24-1345-a
+# always sinh 234-24-1345-125-a
+# always tan 2345-1-1345-a
+# always tanh 2345-1-135-125-a
+# always vers 1236-15-1235-234-a
+# End of commented out functions for JAWS mathserver-side fix BZ12179
 # computer braille character sequences
 compbrl :// URLs
 compbrl www.
