@@ -4809,6 +4809,11 @@ freeTranslationTable(TranslationTableHeader *t) {
 	free(t);
 }
 
+static void
+freeDisplayTable(DisplayTableHeader *t) {
+	free(t);
+}
+
 /**
  * Free a char** array
  */
@@ -4941,7 +4946,7 @@ cleanup:
 			*translationTable = NULL;
 		}
 		if (displayTable) {
-			if (*displayTable) free(*displayTable);
+			if (*displayTable) freeDisplayTable(*displayTable);
 			*displayTable = NULL;
 		}
 		return 0;
@@ -5239,11 +5244,10 @@ _lou_allocMem(AllocBuf buffer, int index, int srcmax, int destmax) {
 
 void EXPORT_CALL
 lou_free(void) {
-	TranslationTableChainEntry *currentEntry;
-	TranslationTableChainEntry *previousEntry;
 	lou_logEnd();
 	if (translationTableChain != NULL) {
-		currentEntry = translationTableChain;
+		TranslationTableChainEntry *currentEntry = translationTableChain;
+		TranslationTableChainEntry *previousEntry;
 		while (currentEntry) {
 			freeTranslationTable(currentEntry->table);
 			previousEntry = currentEntry;
@@ -5251,6 +5255,17 @@ lou_free(void) {
 			free(previousEntry);
 		}
 		translationTableChain = NULL;
+	}
+	if (displayTableChain != NULL) {
+		DisplayTableChainEntry *currentEntry = displayTableChain;
+		DisplayTableChainEntry *previousEntry;
+		while (currentEntry) {
+			freeDisplayTable(currentEntry->table);
+			previousEntry = currentEntry;
+			currentEntry = currentEntry->next;
+			free(previousEntry);
+		}
+		displayTableChain = NULL;
 	}
 	if (typebuf != NULL) free(typebuf);
 	typebuf = NULL;

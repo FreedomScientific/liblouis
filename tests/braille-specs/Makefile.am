@@ -85,10 +85,10 @@ EXTRA_DIST =					\
 	hu-hu-g1-hyph_harness.yaml		\
 	hu-hu-g1_braille_input_backward.yaml	\
 	hu-hu-g1_braille_input_forward.yaml	\
-	hu-hu-g1-numbers.yaml			\
-	hu-hu-g1_special_consonants.yaml			\
+	hu-hu-g1_dictionary_numbers.yaml			\
+	hu-hu-g1_dictionary_special_consonants.yaml			\
 	hu-hu-g2_harness.yaml			\
-	hu-hu-g2-numbers.yaml			\
+	hu-hu-g2_dictionary_numbers.yaml			\
 	iu-ca-g1_harness.yaml			\
 	ja-kantenji.yaml			\
 	ka.yaml					\
@@ -104,6 +104,7 @@ EXTRA_DIST =					\
 	ml.yaml					\
 	mn-MN_harness.yaml			\
 	ms-my-g2.yaml				\
+	nemeth.yaml				\
 	nl-comp8_harness.yaml			\
 	nl-g0_harness.yaml			\
 	no_8dot_harness.yaml			\

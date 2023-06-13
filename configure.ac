@@ -43,13 +43,13 @@ AC_ARG_WITH([fuzzer],
     [])
 
 # Checks for libraries.
-if test "x$with_yaml" == xno; then
+if test "x$with_yaml" = xno; then
   AC_DEFINE([WITHOUT_YAML],[1],[Disable YAML tests])
 else
   AC_CHECK_LIB([yaml], [yaml_parser_initialize])
 fi
 
-AM_CONDITIONAL([WITH_YAML], [test "x$ac_cv_lib_yaml_yaml_parser_initialize" == xyes -a "x$with_yaml" != xno])
+AM_CONDITIONAL([WITH_YAML], [test "x$ac_cv_lib_yaml_yaml_parser_initialize" = xyes -a "x$with_yaml" != xno])
 
 # If libyaml is missing warn or die depending on --with-yaml
 if test x$ac_cv_lib_yaml_yaml_parser_initialize != xyes; then
@@ -65,8 +65,17 @@ AM_CONDITIONAL(USE_COVERAGE, [test x"$with_coverage" = xyes])
 
 # Check for fuzzer 
 AC_MSG_CHECKING([whether to enable fuzzer])
-AS_IF([test "x$with_fuzzer" = "xyes" && test "$CC" = "clang" && test "$CXX" = "clang++"], AC_MSG_RESULT([yes]), AC_MSG_RESULT([no]))
-AM_CONDITIONAL(USE_FUZZER, [test "x$with_fuzzer" = "xyes" && test "$CC" = "clang" && test "$CXX" = "clang++"])
+AS_IF([test "$CC" != "clang" || test "$CXX" != "clang++"], [with_fuzzer=no])
+AS_IF([test "x$with_fuzzer" = "xyes"],
+      [
+        AC_MSG_RESULT([yes])
+        HOST_CPU="`$CC -print-multiarch | sed -e 's/-.*//'`"
+        CFLAGS="$CFLAGS -fsanitize=fuzzer-no-link"
+        LIBFUZZER_NO_MAIN="`$CC $CFLAGS -print-runtime-dir`/libclang_rt.fuzzer_no_main-$HOST_CPU.a -lstdc++ -lm"
+      ],
+      AC_MSG_RESULT([no]))
+AC_SUBST(LIBFUZZER_NO_MAIN)
+AM_CONDITIONAL(USE_FUZZER, [test "x$with_fuzzer" = "xyes"])
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -182,7 +191,7 @@ AC_ARG_ENABLE([macros],
   [enable_macros=$enableval],
   [])
 
-if test "x$enable_macros" == xyes; then
+if test "x$enable_macros" = xyes; then
    AC_DEFINE([ENABLE_MACROS],[1],[Enable macros])
 fi
 AM_CONDITIONAL([ENABLE_MACROS], [test "x$enable_macros" = xyes])
