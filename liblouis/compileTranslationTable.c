@@ -343,18 +343,11 @@ int EXPORT_CALL
 _lou_getALine(FileInfo *file) {
 	/* Read a line of widechar's from an input file */
 	int ch;
-	int pch = 0;
 	file->linelen = 0;
 	while ((ch = getAChar(file)) != EOF) {
 		if (ch == 13) continue;
-		if (pch == '\\' && ch == 10) {
-			file->linelen--;
-			pch = ch;
-			continue;
-		}
 		if (ch == 10 || file->linelen >= MAXSTRING - 1) break;
 		file->line[file->linelen++] = (widechar)ch;
-		pch = ch;
 	}
 	file->line[file->linelen] = 0;
 	file->linepos = 0;
@@ -1131,10 +1124,7 @@ addCharacterClass(const FileInfo *file, const widechar *name, int length,
 		for (int i = 0; i < length; i++) {
 			if (!((name[i] >= 'a' && name[i] <= 'z') ||
 						(name[i] >= 'A' && name[i] <= 'Z'))) {
-				// don't abort because in some cases (before/after rules)
-				// this will work fine, but it will not work in multipass
-				// expressions
-				compileWarning(file,
+				compileError(file,
 						"Invalid attribute name: must be a digit between "
 						"0 and 7 or a word containing only letters");
 			}
@@ -3415,7 +3405,7 @@ doOpcode:
 			s[k++] = '\0';
 			for (i = 0; i < MAX_EMPH_CLASSES && (*table)->emphClassNames[i]; i++)
 				if (strcmp(s, (*table)->emphClassNames[i]) == 0) {
-					_lou_logMessage(LOU_LOG_WARN, "Duplicate emphasis class: %s", s);
+					compileWarning(file, "Duplicate emphasis class: %s", s);
 					warningCount++;
 					free(s);
 					return 1;
