@@ -19,6 +19,7 @@ EXTRA_DIST =					\
 	da-dk-g26-dictionary_harness.yaml	\
 	da-dk-g28-dictionary_harness_1993.yaml	\
 	da-dk-g28-dictionary_harness.yaml	\
+	de-blista-dictionary.yaml 		\
 	de-comp6.yaml				\
 	de-de-comp8.yaml			\
 	de-eurobrl6.yaml			\
@@ -32,21 +33,13 @@ EXTRA_DIST =					\
 	de-g2.yaml				\
 	de-g2-detailed-specs.yaml		\
 	de-g2-dictionary.yaml			\
-	de-g2-blista-dictionary.yaml 		\
 	de-g2-sbs.yaml				\
 	el-backward.yaml			\
 	el-forward.yaml				\
 	en-GB-g2.yaml				\
 	en-gb-g1_harness.yaml			\
 	en-nabcc.yaml				\
-	en-ueb-02-stand_alone.yaml		\
-	en-ueb-03-symbols.yaml			\
-	en-ueb-05-grade_1_mode.yaml		\
-	en-ueb-06-numeric_mode.yaml		\
-	en-ueb-08-capitalization.yaml		\
-	en-ueb-09-typeforms.yaml		\
-	en-ueb-10-07-contractions.yaml		\
-	en-ueb-10-13-contractions.yaml		\
+	en-ueb-rueb.yaml			\
 	en-ueb-g1_backward.yaml			\
 	en-ueb-g1_harness.yaml			\
 	en-ueb-g2-dictionary_harness.yaml	\
@@ -69,6 +62,7 @@ EXTRA_DIST =					\
 	fa-ir-comp8-harness.yaml		\
 	fa-ir-g1-harness.yaml			\
 	fi_harness.yaml				\
+	fil.yaml				\
 	fr-bfu-comp6.yaml			\
 	fr-bfu-comp8.yaml			\
 	fr-bfu-g2.yaml				\

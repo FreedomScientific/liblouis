@@ -1,7 +1,7 @@
-liblouis 3.26.0 has been released
+liblouis 3.28.0 has been released
 
 The liblouis developer team is proud to announce the liblouis release
-3.26.0. The release is available for download at:
+3.28.0. The release is available for download at:
 
 https://github.com/liblouis/liblouis/releases
 
@@ -18,10 +18,12 @@ liblouisutdml [2]_ deals with formatting of braille.
 Noteworthy changes in this release
 ==================================
 
-This release contains one new feature, namely the possibility to mark a
-test as an expected failure just for back- or forward translation. On
-top of that we have updates for Danish, Hungarian, Norwegian and Nemeth
-Braille plus the usual assortment of code cleanups and bug fixes.
+This release manages to bring as many new features, table improvements
+and bug fixes as we haven't seen in a long time. There are a number of
+major bug fixes that Bert worked on that fix bugs and inconsistencies.
+On the table side there is a new table for Filipino contracted braille,
+James has tirelessly been working on UEB improvements and (as usual)
+Attila worked on the Hungarian tables.
 
 I'd like to thank everybody for helping to bring liblouis forward.
 
@@ -31,47 +33,62 @@ issues [3]_.
 New features
 ------------
 
--  The YAML syntax to define tests has been improved so that expected
-   failures can now contain a direction attribute. In other words you
-   can now specify whether you expect a test to fail for both directions
-   or just for forward or backward translation. For more details consult
-   the updated documentation on how to write YAML tests. Thanks to
-   Christian Egli.
+-  ``lou_translate`` has a new option to specify the table to use with a
+   query. See the updated documentation on how to make use of this new
+   feature.
 
 Bug fixes
 ---------
 
--  Fix an out-of-bound write in ``brl_checks.c`` thanks to Bert Frees
-   for the fix and to Han Zheng for the report.
--  Clear the display table cache on ``lou_free`` thanks to Bert Frees
-   for the fix and to David Korczynski for the report.
+-  Fix a bug when matching context rules that begin with uppercase
+   letters. Thanks to Anthony Tibbs for the very detailed bug
+   report [4]_ and thanks to Bert for the actual fix.
+-  Fix a memory corruption error in the code for the swap opcodes.
+   Thanks to the OSS-fuzz project for reporting and to Christian Egli
+   for fixing it.
+-  Change how emphasis phrases are determined. Also allow non-whole
+   words at the start and end of a phrase. This fixes a problem in the
+   UEB handling. Thanks to Ken Perry from APH for reporting and to Bert
+   Frees for fixing it.
+-  Character definition and base rules are now always considered in the
+   order in which they are defined in the table. In other words the
+   topmost rule always wins. This fixes a number of problems and
+   inconsistencies. Thanks to Bert Frees for the fix.
+
+   -  Fix a problem with ``compbrlAtCursor`` and ``compbrlLeftCursor``
+      that was reported by Daniel Mayr
+
+-  When a table does not define any capital marks, rules are now case
+   sensitive thanks to Bert Frees
 
 Braille table improvements
 --------------------------
 
+-  Improvements to UEB
+
+   -  fixes to many words starting with letters "BE-".
+   -  Fix back translation of dots 26 - when standing alone; should be
+      the word enough.
+   -  Fix assignment for the right double arrow and added left, up, and
+      down double arrows.
+   -  Fix typos in a couple of rules.
+   -  Fix words beginning "CONS-" and "DISHD-" when written uppercase,
+      all above thanks to James Bowden.
+   -  Ensure letter indicators are added to letters A-J following
+      numbers in a capitalized passage, thanks to Anthony Tibbs.
+
 -  Improvements to Hungarian (added more exceptions) thanks to Attila
    Hammer.
--  Changed the Danish grade 2 tables in accordance with updates from the
-   Danish Braille committee, thanks to thanks to Bue Vester-Andersen.
--  Added support for more symbols in the Nemeth braille tables thanks to
-   Norbert Markus.
--  Improvements to Norwegian braille thanks to Lars Bjørndal
-
-   -  Put ``noback`` before acute sign to enable input at sign (email
-      addresses).
-   -  Added more ``noback`` prefixes.
-   -  Corrected leftwards arrow and added definition for left right
-      arrow.
-   -  Changed bullet point from 2356 to 36-36. According to the
-      Norwegian braille standard, this is the preferred unordered list
-      item prefix.
+-  New table for Filipino contracted braille, thanks to Allan Mesoga and
+   Dang Hoai Phúc.
 
 Other changes
 -------------
 
--  Clarify the ``README`` for Python thanks to Rob Beezer.
--  Properly remove support for Python2 in the Python bindings again
-   thanks to Rob Beezer.
+-  The ``manywarnigs`` module from gnulib is no longer used. It caused
+   massive slowdowns when compiling with gcc.
+-  Add the name of the concerned table when logging warnings thanks to
+   Bert Frees for the patch and to Attila Hammer for the PR.
 
 Deprecation notice
 ------------------
@@ -81,12 +98,13 @@ Deprecation notice
 Backwards incompatible changes
 ------------------------------
 
--  None
+-  The order of how character definition and base rules are considered
+   has changed. All included tables were adapted, but if you maintain
+   your own tables you might want to look at the change [5]_ to see
+   what you need to do.
 
 Invisible changes
 -----------------
-
--  None
 
 New, renamed or removed tables
 ------------------------------
@@ -94,23 +112,23 @@ New, renamed or removed tables
 New
 ~~~
 
--  None
+-  fil-g2.ctb
 
 Renamed
 ~~~~~~~
 
--  None
+None
 
 Removed
 ~~~~~~~
 
--  None
+None
 
 Next release
 ============
 
-The next release will be published on September 4 2023 so please keep up
-the excellent work and keep those improvements coming.
+The next release will be published on March 4 2024 so please keep up the
+excellent work and keep those improvements coming.
 
 Share and Enjoy!
 
@@ -126,4 +144,10 @@ Footnotes
    https://github.com/liblouis/liblouisutdml
 
 .. [3]
-   https://github.com/liblouis/liblouis/milestone/36?closed=1
+   https://github.com/liblouis/liblouis/milestone/38?closed=1
+
+.. [4]
+   https://github.com/liblouis/liblouis/issues/1461
+
+.. [5]
+   https://github.com/liblouis/liblouis/pull/1481

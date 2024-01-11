@@ -86,6 +86,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/da-dk-g26-dictionary_harness.yaml	  \
 	braille-specs/da-dk-g28-dictionary_harness_1993.yaml	  \
 	braille-specs/da-dk-g28-dictionary_harness.yaml	  \
+	braille-specs/de-blista-dictionary.yaml	  	\
 	braille-specs/de-comp6.yaml			  \
 	braille-specs/de-de-comp8.yaml 			  \
 	braille-specs/de-eurobrl6.yaml			  \
@@ -100,20 +101,12 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/de-g2-sbs.yaml			  \
 	braille-specs/de-g2-detailed-specs.yaml		  \
 	braille-specs/de-g2-dictionary.yaml		  \
-	braille-specs/de-g2-blista-dictionary.yaml	  \
 	braille-specs/el-backward.yaml			  \
 	braille-specs/el-forward.yaml			  \
 	braille-specs/en-GB-g2.yaml			  \
 	braille-specs/en-gb-g1_harness.yaml		  \
 	braille-specs/en-nabcc.yaml			  \
-	braille-specs/en-ueb-02-stand_alone.yaml	  \
-	braille-specs/en-ueb-03-symbols.yaml		  \
-	braille-specs/en-ueb-05-grade_1_mode.yaml	  \
-	braille-specs/en-ueb-06-numeric_mode.yaml	  \
-	braille-specs/en-ueb-08-capitalization.yaml	  \
-	braille-specs/en-ueb-09-typeforms.yaml		  \
-	braille-specs/en-ueb-10-07-contractions.yaml	  \
-	braille-specs/en-ueb-10-13-contractions.yaml	  \
+	braille-specs/en-ueb-rueb.yaml	  		  \
 	braille-specs/en-ueb-g1_backward.yaml		  \
 	braille-specs/en-ueb-g1_harness.yaml		  \
 	braille-specs/en-ueb-g2-dictionary_harness.yaml	  \
@@ -137,6 +130,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/fa-ir-comp8-harness.yaml		  \
 	braille-specs/fa-ir-g1-harness.yaml		  \
 	braille-specs/fi_harness.yaml			  \
+	braille-specs/fil.yaml				  \
 	braille-specs/fr-bfu-comp6.yaml			  \
 	braille-specs/fr-bfu-comp8.yaml			  \
 	braille-specs/fr-bfu-g2.yaml			  \
