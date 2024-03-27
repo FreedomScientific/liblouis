@@ -39,7 +39,7 @@ EXTRA_DIST =					\
 	en-GB-g2.yaml				\
 	en-gb-g1_harness.yaml			\
 	en-nabcc.yaml				\
-	en-ueb-rueb.yaml			\
+	en-ueb.yaml				\
 	en-ueb-g1_backward.yaml			\
 	en-ueb-g1_harness.yaml			\
 	en-ueb-g2-dictionary_harness.yaml	\
@@ -47,7 +47,6 @@ EXTRA_DIST =					\
 	en-ueb-g2_backward_no_dis.yaml		\
 	en-ueb-computer-code.yaml		\
 	en-ueb-math.yaml			\
-	en-ueb-repeated-underscores.yaml	\
 	en-ueb-symbols_harness.yaml		\
 	en-us-comp6.yaml			\
 	en-us-emphasis_harness.yaml		\
@@ -72,6 +71,7 @@ EXTRA_DIST =					\
 	grc-international-common.yaml		\
 	grc-international-composed.yaml		\
 	grc-international-decomposed.yaml	\
+	grc-international-es.yaml	\
 	he-IL.yaml				\
 	hi_harness.yaml				\
 	hr-8dots_harness.yaml			\
@@ -93,6 +93,7 @@ EXTRA_DIST =					\
 	ko-g2_harness.yaml			\
 	litdigits6Dots_backward.yaml		\
 	lg-ug-g1.yaml				\
+	lo.yaml					\
 	lt-6dot_harness.yaml			\
 	lt_harness.yaml				\
 	lv_harness.yaml				\
@@ -123,6 +124,7 @@ EXTRA_DIST =					\
 	sw-ke.yaml				\
 	ta-ta-g1_harness.yaml			\
 	th.yaml					\
+	tr.yaml					\
 	tt.yaml					\
 	uk.yaml					\
 	ur-pk-g2.yaml				\

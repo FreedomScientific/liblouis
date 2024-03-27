@@ -17,6 +17,7 @@ table_files = \
 	be-in-g1.utb \
 	bel.utb \
 	bel-comp.utb \
+	bel-detailed.utb \
 	bengali.cti \
 	bg.dis \
 	bg.ctb \
@@ -71,7 +72,6 @@ table_files = \
 	da-dk-g28_1993.ctb \
 	da-dk-g28.ctb \
 	da-dk-g28l_1993.ctb \
-	da-dk-g2_1993.dic \
 	da-dk-g2.dic \
 	da-dk-octobraille_1993.dis \
 	da-dk-octobraille.dis \
@@ -164,6 +164,7 @@ table_files = \
 	grc-international-composed.uti \
 	grc-international-decomposed.uti \
 	grc-international-en.utb \
+	grc-international-es.utb \
 	gr-pl-comp8.uti \
 	gu-in-g1.utb \
 	gujarati.cti \
@@ -249,6 +250,7 @@ table_files = \
 	litdigits6DotsPlusDot6.uti \
 	litdigits6Dots.uti \
 	lg-ug-g1.utb \
+	lo-g1.utb \
 	loweredDigits6Dots.uti \
 	loweredDigits8Dots.uti \
 	latinLowercase.uti \
@@ -389,6 +391,7 @@ table_files = \
 	ukmaths_unicode_defs.cti \
 	uk.utb \
 	uk-comp.utb \
+	uk-detailed.utb \
 	unicode-braille.utb \
 	unicode.dis \
 	unicode-without-blank.dis \
