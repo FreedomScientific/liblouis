@@ -21,11 +21,11 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+      uses: step-security/harden-runner@a4aa98b93cab29d9b1101a6143fb8bce00e2eac4 # v2.7.1
       with:
         egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
 
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
     - name: Install dependencies
       run: sudo apt-get update -qq && sudo apt-get install -y licensecheck
     - name: Check licenses
@@ -35,7 +35,7 @@ jobs:
         test -z "$(licensecheck --check='\.(ctb|utb|cti|uti|dis)' --deb-fmt --machine tables/* | grep -Ev '(LGPL-2.1+|LGPL-3+)' | tee unknown_licenses.txt)"
     - name: Store the list of files with unknown licenses
       if: ${{ failure() }}
-      uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
+      uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
       with:
         name: unknown_licenses.txt
         path: unknown_licenses.txt
