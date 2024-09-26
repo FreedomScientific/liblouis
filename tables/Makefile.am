@@ -167,6 +167,7 @@ table_files = \
 	grc-international-composed.uti \
 	grc-international-decomposed.uti \
 	grc-international-en.utb \
+	grc-international-en-composed.utb \
 	grc-international-es.utb \
 	gr-pl-comp8.uti \
 	gu-in-g1.utb \
@@ -225,6 +226,7 @@ table_files = \
 	it.tbl \
 	iu-ca-g1.ctb \
 	ja-kantenji.utb \
+	ja-kantenji-ucs2.utb \
 	ka.utb \
 	ka-in-g1.utb \
 	kannada.cti \
@@ -383,6 +385,7 @@ table_files = \
 	te.tbl \
 	text_nabcc.dis \
 	th-g0.utb \
+	th-g1.utb \
 	th-comp8-backward.utb \
 	tr.ctb \
 	tr-g1.ctb \

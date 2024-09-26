@@ -124,7 +124,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/en-us-g2.yaml			  \
 	braille-specs/en-us-g2-dictionary_harness.yaml	  \
 	braille-specs/eo-g1_harness.yaml		  \
-	braille-specs/es-comp.yaml			  \
+	braille-specs/es-g0-g1.yaml			  \
 	braille-specs/es-g2.yaml			  \
 	braille-specs/ethio-g1_harness.yaml		  \
 	braille-specs/fa-ir-comp8-harness.yaml		  \
@@ -169,6 +169,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/ml.yaml				  \
 	braille-specs/mn-MN_harness.yaml		  \
 	braille-specs/ms-my-g2.yaml			  \
+	braille-specs/my-g2.yaml			  \
 	braille-specs/nemeth.yaml			  \
 	braille-specs/nl-comp8_harness.yaml		  \
 	braille-specs/nl-g0_harness.yaml		  \
@@ -194,6 +195,7 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/syc.yaml				  \
 	braille-specs/ta-ta-g1_harness.yaml		  \
 	braille-specs/th.yaml				  \
+	braille-specs/th-g1.yaml				  \
 	braille-specs/tr.yaml				  \
 	braille-specs/tt.yaml				  \
 	braille-specs/uk.yaml				  \
@@ -242,6 +244,7 @@ dist_yaml_TESTS =				\
 	yaml/issue-615.yaml			\
 	yaml/issue-963.yaml			\
 	yaml/letterDefTest_harness.yaml		\
+	yaml/match-vs-always.yaml		\
 	yaml/multipass-backward.yaml		\
 	yaml/multipass-forward.yaml		\
 	yaml/multipass.yaml			\

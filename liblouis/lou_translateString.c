@@ -607,7 +607,7 @@ doPassSearch(const TranslationTableHeader *table, const InString *input,
 		*searchPos = pos;
 		while (*searchIC < transRule->dotslen) {
 			int itsTrue = 1;  // whether we have a match or not
-			if (*searchPos > input->length) return 0;
+			if (*searchPos >= input->length) return 0;
 			switch (passInstructions[*searchIC]) {
 			case pass_lookback:
 				*searchPos -= passInstructions[*searchIC + 1];
@@ -755,7 +755,9 @@ passDoTest(const TranslationTableHeader *table, int pos, const InString *input,
 		*passCharDots = 1;
 	while (*passIC < transRule->dotslen) {
 		int itsTrue = 1;  // whether we have a match or not
-		if (pos > input->length) return 0;
+		// check if `pos` is within the input string,
+		// maybe a unsigned type would be better to omit negative values
+		if (pos > input->length || pos < 0) return 0;
 		switch ((*passInstructions)[*passIC]) {
 		case pass_first:
 			if (pos != 0) itsTrue = 0;
@@ -882,7 +884,8 @@ passDoTest(const TranslationTableHeader *table, int pos, const InString *input,
 				startReplace = startMatch;
 				endReplace = endMatch;
 			}
-			if (startReplace < startMatch)
+			// Check whetehr endReplace != -1 while startReplace! = -1
+			if (startReplace < startMatch || endReplace == -1)
 				return 0;
 			else {
 				*match = (PassRuleMatch){ .startMatch = startMatch,
@@ -2925,11 +2928,12 @@ resolveEmphasisPassages(EmphasisInfo *buffer, const EmphasisClass *class,
 		if (!in_word && wordBuffer[i] & WORD_CHAR) {
 			in_word = 1;
 			last_word_start = i;
-		} else /* check if at end of word */
+		} else { /* check if at end of word */
 			if (in_word && !(wordBuffer[i] & WORD_CHAR)) {
 				in_word = 0;
 				last_word_end = i;
 			}
+		}
 
 		/* check for symbol or word indicator */
 		if (!in_emph_word &&
@@ -2951,7 +2955,7 @@ resolveEmphasisPassages(EmphasisInfo *buffer, const EmphasisClass *class,
 				} else
 					goto end_passage;
 			}
-		} else /* check for word end indicator or word end */
+		} else { /* check for word end indicator or word end */
 			if ((in_emph_word &&
 						(buffer[i].word & class->value &&
 								buffer[i].end & class->value)) ||
@@ -2962,6 +2966,7 @@ resolveEmphasisPassages(EmphasisInfo *buffer, const EmphasisClass *class,
 					last_pass_word_end = i;
 				}
 			}
+		}
 
 		/* check if possibly at beginning of passage */
 		if (!in_pass && (in_emph_word || last_emph_symbol == i)) {
@@ -2973,7 +2978,7 @@ resolveEmphasisPassages(EmphasisInfo *buffer, const EmphasisClass *class,
 				last_pass_word_end = -1;
 				pass_word_cnt = 1;
 			}
-		} else /* check if at end of passage */
+		} else { /* check if at end of passage */
 			if (in_pass) {
 				if (in_word && !(in_emph_word || last_emph_symbol == i)) {
 				end_passage:
@@ -3001,6 +3006,7 @@ resolveEmphasisPassages(EmphasisInfo *buffer, const EmphasisClass *class,
 					}
 				}
 			}
+		}
 	}
 }
 
@@ -3881,7 +3887,7 @@ translateString(const TranslationTableHeader *table, int mode, int currentPass,
 					if (!putCharacter(input->chars[pos], table, pos, input, output,
 								posMapping, cursorPosition, cursorStatus, mode))
 						goto failure;
-					pos++;
+					if (++pos >= input->length) break;
 				}
 			}
 			break;
