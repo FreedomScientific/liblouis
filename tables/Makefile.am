@@ -5,6 +5,8 @@ table_files = \
 	afr-za-g2.ctb \
 	akk.utb \
 	akk-borger.utb \
+	ancient-languages-borger.utb \
+	ancient-languages-us.utb \
 	ar-ar-comp8.utb \
 	ar-ar-g1-core.uti \
 	ar-ar-g1.utb \
@@ -47,6 +49,7 @@ table_files = \
 	cop-eg-comp8.utb \
 	corrections.cti \
 	countries.cti \
+	critical-apparatus.uti \
 	cs-chardefs.cti \
 	cs-comp8.utb \
 	cs-g1.ctb \
@@ -176,6 +179,8 @@ table_files = \
 	gu.tbl \
 	haw-us-g1.ctb \
 	hbo.utb \
+	he-common-consonants.uti \
+	he-common-vowels-ihbc.uti \
 	he-IL.utb \
 	he-IL-comp8.utb \
 	hi-in-g1.utb \

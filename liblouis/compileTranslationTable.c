@@ -29,6 +29,8 @@
  * @brief Read and compile translation tables
  */
 
+#include <config.h>
+
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -38,7 +40,6 @@
 #include <sys/stat.h>
 
 #include "internal.h"
-#include "config.h"
 
 #define QUOTESUB 28 /* Stand-in for double quotes in strings */
 
@@ -1387,7 +1388,10 @@ parseChars(const FileInfo *file, CharsString *result, CharsString *token) {
 			result->length = lastOutSize;
 			return 0;
 		}
-		if (CHARSIZE == 2 && utf32 > 0xffff) utf32 = 0xffff;
+		if (CHARSIZE == 2 && utf32 > 0xffff) {
+			compileError(file, "liblouis has not been compiled for 32-bit Unicode");
+			return 1;
+		}
 		result->chars[out++] = (widechar)utf32;
 	}
 	result->length = out;
@@ -4738,7 +4742,7 @@ _lou_getTablePath(void) {
  * `LOUIS_TABLEPATH`, `dataPath` and `programPath` (in that order).
  *
  * @param table A file path, may be absolute or relative. May be a list of
- *              tables separated by comma's. In that case, the first table
+ *              tables separated by commas. In that case, the first table
  *              is used as the base for the other subtables.
  * @param base A file path or directory path, or NULL.
  * @return The file paths of the resolved subtables, or NULL if the table
@@ -4968,11 +4972,11 @@ compileTable(const char *tableList, const char *displayTableList,
 		(*translationTable)->ruleNames = NULL;
 	}
 
-	/* Compile things that are necesary for the proper operation of
+	/* Compile things that are necessary for the proper operation of
 	 * liblouis or liblouisxml or liblouisutdml */
 	/* TODO: These definitions seem to be necessary for proper functioning of
 	   liblouisutdml. Find a way to satisfy those requirements without hard coding
-	   some characters in every table notably behind the users back */
+	   some characters in every table notably behind the user's back */
 	compileString("space \\xffff 123456789abcdef LOU_ENDSEGMENT", translationTable,
 			displayTable);
 
@@ -5065,7 +5069,7 @@ void EXPORT_CALL
 _lou_getTable(const char *tableList, const char *displayTableList,
 		const TranslationTableHeader **translationTable,
 		const DisplayTableHeader **displayTable) {
-	TranslationTableHeader *newTable;
+	TranslationTableHeader *newTable = NULL;
 	DisplayTableHeader *newDisplayTable = NULL;
 	getTable(tableList, displayTableList, &newTable, &newDisplayTable);
 	if (newTable)
@@ -5077,8 +5081,8 @@ _lou_getTable(const char *tableList, const char *displayTableList,
 /* Checks and loads tableList. */
 const void *EXPORT_CALL
 lou_getTable(const char *tableList) {
-	const TranslationTableHeader *table;
-	const DisplayTableHeader *displayTable;
+	const TranslationTableHeader *table = NULL;
+	const DisplayTableHeader *displayTable = NULL;
 	_lou_getTable(tableList, tableList, &table, &displayTable);
 	if (!table || !displayTable) return NULL;
 	return table;
@@ -5086,7 +5090,7 @@ lou_getTable(const char *tableList) {
 
 const TranslationTableHeader *EXPORT_CALL
 _lou_getTranslationTable(const char *tableList) {
-	TranslationTableHeader *table;
+	TranslationTableHeader *table = NULL;
 	getTable(tableList, NULL, &table, NULL);
 	if (table)
 		if (!finalizeTable(table)) table = NULL;
@@ -5095,7 +5099,7 @@ _lou_getTranslationTable(const char *tableList) {
 
 const DisplayTableHeader *EXPORT_CALL
 _lou_getDisplayTable(const char *tableList) {
-	DisplayTableHeader *table;
+	DisplayTableHeader *table = NULL;
 	getTable(NULL, tableList, NULL, &table);
 	return table;
 }

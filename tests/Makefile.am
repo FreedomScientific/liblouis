@@ -77,9 +77,9 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/bn.yaml				  \
 	braille-specs/chr-us-g1_harness.yaml		  \
 	braille-specs/cop-eg.yaml			  \
+	braille-specs/critical-apparatus.yaml		  \
 	braille-specs/cs_harness.yaml			  \
 	braille-specs/cs-comp8_harness.yaml		  \
-	braille-specs/cuneiform-transliterated.yaml	  \
 	braille-specs/da-dk_1993.yaml			  \
 	braille-specs/da-dk-6dot.yaml			  \
 	braille-specs/da-dk-8dot.yaml			  \
@@ -138,10 +138,8 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/ga-g1_harness.yaml		  \
 	braille-specs/ga-g2_harness.yaml		  \
 	braille-specs/grc-international-common.yaml	  \
-	braille-specs/grc-international-composed.yaml	  \
 	braille-specs/grc-international-decomposed.yaml	  \
 	braille-specs/grc-international-es.yaml	  \
-	braille-specs/hbo.yaml				  \
 	braille-specs/he-IL.yaml			  \
 	braille-specs/hi_harness.yaml			  \
 	braille-specs/hr-8dots_harness.yaml		  \
@@ -192,7 +190,6 @@ dist_braille_specs_TESTS =				  \
 	braille-specs/sv.yaml				  \
 	braille-specs/sw-ke-dictionary.yaml		  \
 	braille-specs/sw-ke.yaml			  \
-	braille-specs/syc.yaml				  \
 	braille-specs/ta-ta-g1_harness.yaml		  \
 	braille-specs/th.yaml				  \
 	braille-specs/th-g1.yaml				  \
@@ -216,7 +213,11 @@ if HAVE_UCS4
 dist_braille_specs_TESTS +=				\
 	braille-specs/akk.yaml				\
 	braille-specs/akk-borger.yaml			\
+	braille-specs/cuneiform-transliterated.yaml	\
+	braille-specs/grc-international-composed.yaml	\
+	braille-specs/hbo.yaml				\
 	braille-specs/hu-hu-g1-hyph_harness.yaml	\
+	braille-specs/syc.yaml				\
 	braille-specs/uga.yaml
 endif
 
