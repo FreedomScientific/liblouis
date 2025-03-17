@@ -37,7 +37,10 @@ extern "C" {
 
 // clang-format interacts badly with @foo@
 // clang-format off
-typedef unsigned short int widechar;
+	// widechar needs to be unsigned int in order to support ancient
+	// languages since their code points are in a supplemental Unicode
+	// plane with values above 0xffff.
+typedef unsigned int widechar;
 // clang-format on
 typedef unsigned short formtype;
 
