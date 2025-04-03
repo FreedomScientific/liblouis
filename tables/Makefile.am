@@ -47,6 +47,7 @@ table_files = \
 	compress.cti \
 	controlchars.cti \
 	cop-eg-comp8.utb \
+	cop.utb \
 	corrections.cti \
 	countries.cti \
 	critical-apparatus.uti \
@@ -58,6 +59,7 @@ table_files = \
 	cy-cy-g1.utb \
 	cy-cy-g2.ctb \
 	cuneiform-transliterated.utb \
+	cuneiform-transliterated-compact.utb \
 	cy.tbl \
 	da-dk-6miscChars_1993.cti \
 	da-dk-6miscChars.cti \
@@ -329,6 +331,7 @@ table_files = \
 	Pl-Pl-g1.utb \
 	pl.tbl \
 	printables.cti \
+	pt-comp6.utb \
 	pt-pt-comp8.ctb \
 	pt-pt-g1.utb \
 	pt-pt-g2.ctb \

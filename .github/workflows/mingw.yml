@@ -22,14 +22,14 @@ jobs:
   build:
     name: Build for win64
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       HOST: x86_64-w64-mingw32
       PREFIX: /tmp/build/win64
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+      uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
       with:
         egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
 
@@ -55,7 +55,7 @@ jobs:
       run: make check WINE=wine64
     - name: Store the test suite log
       if: ${{ failure() }}
-      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+      uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
       with:
         name: test-suite-w64.log
         path: tests/test-suite.log
@@ -65,7 +65,7 @@ jobs:
     - name: Zip up the build artifacts
       run: ( cd ${{ env.PREFIX }}; zip -r liblouis.zip * )
     - name: Archive the build artifacts
-      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+      uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
       with:
         name: liblouis-w64.zip
         path:  ${{ env.PREFIX }}/liblouis.zip
@@ -111,7 +111,7 @@ jobs:
   #
   #  steps:
   #  - name: Harden Runner
-  #    uses: step-security/harden-runner@91182cccc01eb5e619899d80e4e971d6181294a7 # v2.10.1
+  #    uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
   #    with:
   #      egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
   #
@@ -144,7 +144,7 @@ jobs:
   #    run: make check WINE=wine
   #  - name: Store the test suite log
   #    if: ${{ failure() }}
-  #    uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+  #    uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
   #    with:
   #      name: test-suite-w32.log
   #      path: tests/test-suite.log
@@ -154,7 +154,7 @@ jobs:
   #  - name: Zip up the build artifacts
   #    run: ( cd ${{ env.PREFIX }}; zip -r liblouis.zip * )
   #  - name: Archive the build artifacts
-  #    uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+  #    uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
   #    with:
   #      name: liblouis-w32.zip
   #      path:  ${{ env.PREFIX }}/liblouis.zip

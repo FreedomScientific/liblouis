@@ -22,12 +22,14 @@
 * ../../tables/ca.tbl                               Catalan                                            Catalan braille
 * ../../tables/chr-us-g1.ctb                        Cherokee                                           Cherokee braille
 * ../../tables/cop-eg-comp8.utb                     Coptic, computer                                   Coptic computer braille
+* ../../tables/cop.utb                              Coptic                                             Coptic braille
 * ../../tables/ckb.tbl                              Kurdish                                            Kurdish braille
 * ../../tables/cs.tbl                               Czech                                              Czech braille
 * ../../tables/cs-comp8.utb                         Czech, computer                                    Czech computer braille
 * ../../tables/cy-cy-g1.utb                         Welsh, uncontracted                                Welsh uncontracted braille
 * ../../tables/cy.tbl                               Welsh, contracted                                  Welsh contracted braille
   ../../tables/cuneiform-transliterated.utb         Cuneiform, transliterated                          Transliterated Cuneiform braille
+  ../../tables/cuneiform-transliterated-compact.utb Cuneiform, transliterated, compact                 Transliterated Cuneiform braille with compact diacritics
 * ../../tables/da-dk-g08_1993.ctb                   Danish, computer, 1993                             Danish computer braille (1993 standard)
 * ../../tables/da-dk-g16-lit_1993.ctb               Danish, uncontracted, 6-dot, 1993                  Danish 6-dot uncontracted braille (1993 standard)
 * ../../tables/da-dk-g16_1993.ctb                   Danish, uncontracted, 6-dot, 1993                  Danish 6-dot uncontracted braille (1993 standard)
@@ -98,6 +100,7 @@
 * ../../tables/hu.tbl                               Hungarian, partially contracted                    Hungarian partially contracted braille
 * ../../tables/hu-hu-g2.ctb                         Hungarian, contracted                              Hungarian contracted braille
 * ../../tables/hy.tbl                               Armenian, computer                                 Armenian computer braille
+  ../../tables/IPA.utb                              International Phonetic Alphabet                    International Phonetic Alphabet braille
 * ../../tables/is.tbl                               Icelandic                                          Icelandic braille
 * ../../tables/it.tbl                               Italian                                            Italian braille
 * ../../tables/it-it-comp8.utb                      Italian, computer                                  Italian computer braille
@@ -153,7 +156,8 @@
 * ../../tables/pl.tbl                               Polish                                             Polish braille
 * ../../tables/pt.tbl                               Portuguese, contracted                             Portuguese contracted braille
 * ../../tables/pt-pt-g1.utb                         Portuguese, uncontracted                           Portuguese uncontracted braille
-* ../../tables/pt-pt-comp8.ctb                      Portuguese, computer                               Portuguese computer braille
+* ../../tables/pt-comp6.utb                         Portuguese, computer, 6-dot                        Portuguese 6-dot computer braille
+* ../../tables/pt-pt-comp8.ctb                      Portuguese, computer, 8-dot                        Portuguese 8-dot computer braille
 * ../../tables/ro.tbl                               Romanian, computer                                 Romanian computer braille
 * ../../tables/ro-g0.utb                            Romanian, uncontracted                             Romanian braille
 * ../../tables/ru.ctb                               Russian, computer                                  Russian computer braille
