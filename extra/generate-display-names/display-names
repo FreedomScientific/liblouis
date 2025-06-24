@@ -90,7 +90,9 @@
 * ../../tables/gon.tbl                              Gondi                                              Gondi braille
 * ../../tables/gu.tbl                               Gujarati                                           Gujarati braille
 * ../../tables/haw-us-g1.ctb                        Hawaiian                                           Hawaiian braille
-* ../../tables/hbo.utb                              Hebrew, classical                                  Classical Hebrew braille
+  ../../tables/hbo.utb                              Hebrew, classical, IHBC                            Classical Hebrew braille according to International Hebrew Braille Code
+  ../../tables/hbo-cantillated.utb                  Hebrew, classical, cantillated                     Classical Hebrew braille with full cantillation
+  ../../tables/hbo-slim.utb                         Hebrew, classical, slim                            Classical Hebrew braille without shewa or dagesh
 * ../../tables/he-IL-comp8.utb                      Hebrew, modern, computer                           Hebrew computer braille
   ../../tables/he-IL.utb                            Hebrew, modern                                     Israeli braille
 * ../../tables/hi.tbl                               Hindi                                              Hindi braille
@@ -121,8 +123,8 @@
 * ../../tables/kru.tbl                              Kurukh                                             Kurukh braille
 * ../../tables/lg-ug-g1.utb                         Luganda                                            Luganda braille
 * ../../tables/lo-g1.utb                            Lao                                                Lao braille
-* ../../tables/lt.tbl                               Lithuanian, 8-dot                                  Lithuanian 8-dot braille
-* ../../tables/lt-6dot.tbl                          Lithuanian, 6-dot                                  Lithuanian 6-dot braille
+  ../../tables/lt-6dot.utb                          Lithuanian, 6-dot                                  Lithuanian 6-dot braille
+* ../../tables/lt-8dot.utb                          Lithuanian, 8-dot                                  Lithuanian 8-dot braille
 * ../../tables/lv.tbl                               Latvian                                            Latvian braille
 * ../../tables/mao-nz-g1.ctb                        Maori                                              Maori braille
 * ../../tables/ml.tbl                               Malayalam                                          Malayalam braille
@@ -160,10 +162,10 @@
 * ../../tables/pt-pt-comp8.ctb                      Portuguese, computer, 8-dot                        Portuguese 8-dot computer braille
 * ../../tables/ro.tbl                               Romanian, computer                                 Romanian computer braille
 * ../../tables/ro-g0.utb                            Romanian, uncontracted                             Romanian braille
-* ../../tables/ru.ctb                               Russian, computer                                  Russian computer braille
+* ../../tables/ru-comp8.utb                         Russian, computer, 8-dot                           Russian 8-dot computer braille
   ../../tables/ru-litbrl.ctb                        Russian                                            Russian braille
   ../../tables/ru-litbrl-detailed.utb               Russian, with capitals                             Russian braille with indication of capitals
-  ../../tables/ru-compbrl.ctb                       Russian, for program sources                       Russian braille for program sources
+* ../../tables/ru-comp6.utb                         Russian, computer, 6-dot                           Russian 6-dot computer braille
   ../../tables/ru-ru-g1.ctb                         Russian, contracted                                Russian contracted braille
 * ../../tables/rw-rw-g1.utb                         Kinyarwanda                                        Kinyarwanda braille
 * ../../tables/sa.tbl                               Sanskrit                                           Sanskrit braille
@@ -194,6 +196,7 @@
 * ../../tables/th-comp8-backward.utb                Thai, computer                                     Thai computer braille
 * ../../tables/th-g0.utb                            Thai, uncontracted                                 Thai uncontracted braille
 * ../../tables/th-g1.utb                            Thai, partially contracted                         Thai partially contracted braille
+* ../../tables/th-g2.ctb                            Thai, contracted                                   Thai contracted braille
 * ../../tables/tr.tbl                               Turkish, computer                                  Turkish computer braille
 * ../../tables/tr-g1.ctb                            Turkish, uncontracted                              Turkish uncontracted braille
 * ../../tables/tr-g2.tbl                            Turkish, contracted                                Turkish contracted braille

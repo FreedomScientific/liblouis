@@ -90,6 +90,7 @@ EXTRA_DIST =					\
 	hu-hu-g2_harness.yaml			\
 	hu-hu-g2_dictionary_numbers.yaml			\
 	ipa.yaml				\
+	it.yaml				\
 	iu-ca-g1_harness.yaml			\
 	ja-kantenji.yaml			\
 	ka.yaml					\
@@ -100,8 +101,7 @@ EXTRA_DIST =					\
 	litdigits6Dots_backward.yaml		\
 	lg-ug-g1.yaml				\
 	lo.yaml					\
-	lt-6dot_harness.yaml			\
-	lt_harness.yaml				\
+	lt.yaml				\
 	lv_harness.yaml				\
 	ml.yaml					\
 	mn-MN_harness.yaml			\
@@ -131,7 +131,6 @@ EXTRA_DIST =					\
 	syc.yaml				\
 	ta-ta-g1_harness.yaml			\
 	th.yaml					\
-	th-g1.yaml					\
 	tr.yaml					\
 	tt.yaml					\
 	uga.yaml				\

@@ -58,15 +58,15 @@ Copyright @copyright{} 1999-2006 by the BRLTTY Team.
 
 @noindent
 Copyright @copyright{} 2004-2007 ViewPlus Technologies, Inc.
-@uref{www.viewplus.com}.
+@uref{https://www.viewplus.com}.
 
 @noindent
 Copyright @copyright{} 2007, 2009 Abilitiessoft, Inc.
-@uref{www.abilitiessoft.org}.
+@uref{https://www.abilitiessoft.org}.
 
 @noindent
 Copyright @copyright{} 2014, 2016 Swiss Library for the Blind, Visually
-Impaired and Print Disabled. @uref{www.sbs.ch}.
+Impaired and Print Disabled. @uref{https://www.sbs.ch}.
 
 @vskip 10pt
 
@@ -162,7 +162,7 @@ Testing Translation Tables interactively
 
 * lou_debug::
 * lou_trace::
-* lou_checktable::
+* lou_checktable (program)::
 * lou_allround::
 * lou_translate (program)::
 * lou_checkhyphens::
@@ -2468,7 +2468,7 @@ found}, for a description on how the tables are located.
 @menu
 * lou_debug::
 * lou_trace::
-* lou_checktable::
+* lou_checktable (program)::
 * lou_allround::
 * lou_translate (program)::
 * lou_checkhyphens::
@@ -2637,7 +2637,7 @@ the u.s. postal service
 21.     pass2   $s1-10  @@0
 @end example
 
-@node lou_checktable
+@node lou_checktable (program)
 @section lou_checktable
 @pindex lou_checktable
 
