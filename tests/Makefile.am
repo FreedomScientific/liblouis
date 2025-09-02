@@ -208,6 +208,7 @@ dist_braille_specs_TESTS +=				\
 	braille-specs/grc-international-composed.yaml	\
 	braille-specs/hbo.yaml				\
 	braille-specs/hu-hu-g1-hyph_harness.yaml	\
+	braille-specs/ja-rokutenkanji.yaml		\
 	braille-specs/syc.yaml				\
 	braille-specs/uga.yaml
 endif
@@ -243,7 +244,6 @@ dist_yaml_TESTS =				\
 	yaml/multipass-negation.yaml		\
 	yaml/multipass-vs-match.yaml		\
 	yaml/new_emph.yaml			\
-	yaml/noletsignafter.yaml		\
 	yaml/nonumsign.yaml			\
 	yaml/numericmode.yaml			\
 	yaml/partialTrans.yaml			\
