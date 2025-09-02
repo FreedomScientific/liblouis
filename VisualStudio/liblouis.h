@@ -423,6 +423,12 @@ char **EXPORT_CALL
 lou_listTables(void);
 
 /**
+ * Free the memory allocated and returned by lou_findTables or lou_listTables.
+ */
+LIBLOUIS_API
+void EXPORT_CALL
+lou_freeTableFiles(char **);
+/**
  * Free all memory allocated by liblouis.
  *
  * This function should be called at the end of the application to
