@@ -70,11 +70,11 @@ BEGIN
         BLOCK "040904B0"
         BEGIN
             VALUE "FileDescription", "Liblouis"
-            VALUE "FileVersion", "3.35.0"
+            VALUE "FileVersion", "3.36.0"
             VALUE "InternalName", "Liblouis"
             VALUE "OriginalFilename", "Liblouis.dll"
             VALUE "ProductName", "Liblouis"
-            VALUE "ProductVersion", "3.35.0"
+            VALUE "ProductVersion", "3.36.0"
         END
     END
     BLOCK "VarFileInfo"
